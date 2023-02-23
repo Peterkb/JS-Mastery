@@ -5,11 +5,155 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JS Coding Challenges</title>
+    <link rel="shortcut icon" href="dist/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Heebo:400,700|IBM+Plex+Sans:600" rel="stylesheet">
     <link rel="stylesheet" href="dist/css/style.css">
+    <link rel="stylesheet" href="dist/css/custom.css">
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 </head>
-<body class="is-boxed has-animations">
-    <h1>HELLO WORLD</h1>
+<body class="is-boxed has-animations lights-off">
+    <div class="body-wrap boxed-container">
+        <header class="site-header">
+            <nav class="container">
+                <div class="site-header-inner">
+                    <div class="brand header-brand">
+                        <h1 class="m-0">
+                            <a href="#">
+								<img class="header-logo-image asset-light" src="dist/images/logo-light.svg" alt="Logo">
+								<img class="header-logo-image asset-dark" src="dist/images/logo-dark.svg" alt="Logo">
+                            </a>
+                        </h1>                        
+                        <h3 class="Brand-header-text">JavaScript</h3>
+                    </div>
+                    <ul class="header-links">
+                        <li><a href="apps.html">Apps</a></li>
+                        <li><a href="https://peter-bredell.com/" target="_blank">Portfolio</a></li>
+                        <li>                            
+                            <div class="lights-toggle">
+                                <input id="lights-toggle" type="checkbox" name="lights-toggle" class="switch">
+                                <!-- <label for="lights-toggle" class="text-xs"><span><span class="label-text"></span></span></label> -->
+                                <label for="lights-toggle" class="text-xs"><span><span class="label-text"></span></span></label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                    <div class="container">
+                        <div class="hero-inner">
+                                            <div class="app-grid">
+                                                <ul>
+                                                    <li>
+                                                        <a href="apps/fizzBuzz/app.html">FizzBuzz</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="apps/lionOil/app.html">LionOil</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="apps/easyLoan/app.html">EasyLoan</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Longest Word</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Balanced Brackets </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Km to Miles</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Object Sort</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Anagram Check</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Palindrome</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Anagram Check</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Sum Array Values</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Searching Objects</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Most Used Word</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Sum The Values Of An Array With Recursion</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="hero-media">
+                                                <div class="header-illustration">
+                                                    <img class="header-illustration-image asset-light" src="dist/images/header-illustration-light.svg" alt="Header illustration">
+                                                    <img class="header-illustration-image asset-dark" src="dist/images/header-illustration-dark.svg" alt="Header illustration">
+                                                </div>
+                                                <div class="hero-media-illustration">
+                                                    <img class="hero-media-illustration-image asset-light" src="dist/images/hero-media-illustration-light.svg" alt="Hero media illustration">
+                                                    <img class="hero-media-illustration-image asset-dark" src="dist/images/hero-media-illustration-dark.svg" alt="Hero media illustration">
+                                                </div>
+                                                <div class="hero-media-container">
+                                                    <div class="hero-img">
+                                        <!-- Light -->
+                                                        <img class="hero-media-image asset-light" src="dist/images/hero-media-light.svg" alt="Hero media">
+                                        <img class="hero-media-image asset-light imgOver" src="dist/images/hero-media-light-img.png" alt="Hero media">
+                                        <!-- Dark -->
+                                        <img class="hero-media-image asset-dark" src="dist/images/hero-media-dark.svg" alt="Hero media">
+                                        <img class="hero-media-image asset-dark imgOver" src="dist/images/hero-media-dark-img.png" alt="Hero media">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+        <footer class="site-footer has-top-divider">
+            <div class="container">
+                <div class="site-footer-inner">
+                    <div class="brand footer-brand">
+                        <a href="#">
+							<img class="asset-light" src="dist/images/logo-pb.png" alt="Logo">
+							<img class="asset-dark" src="dist/images/logo-pb.png" alt="Logo">
+                        </a>
+                    </div>
+                    <ul class="footer-links list-reset">
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                        <li>
+                            <a href="https://peter-bredell.com/" target="_blank">Portfolio</a>
+                        </li>
+                    </ul>
+                    <ul class="footer-social-links list-reset">
+                        <li>
+                            <a href="https://github.com/Peterkb">
+                                <span class="screen-reader-text">Github</span>
+                                <svg class="svg-footer" width="20" height="20" viewBox="0 0 534 534" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+                                    <path d="M266.667,6.588c-147.255,0 -266.663,119.382 -266.663,266.663c0,117.823 76.407,217.775 182.36,253.039c13.323,2.473 18.215,-5.784 18.215,-12.828c0,-6.358 -0.247,-27.365 -0.362,-49.647c-74.185,16.131 -89.839,-31.462 -89.839,-31.462c-12.131,-30.823 -29.609,-39.019 -29.609,-39.019c-24.198,-16.55 1.824,-16.206 1.824,-16.206c26.773,1.877 40.877,27.48 40.877,27.48c23.784,40.758 62.383,28.977 77.6,22.167c2.393,-17.235 9.304,-29.003 16.93,-35.662c-59.23,-6.734 -121.497,-29.603 -121.497,-131.781c0,-29.113 10.421,-52.901 27.48,-71.58c-2.773,-6.712 -11.901,-33.834 2.578,-70.565c0,-0 22.389,-7.167 73.347,27.334c21.276,-5.913 44.092,-8.885 66.759,-8.986c22.653,0.101 45.482,3.064 66.798,8.977c50.896,-34.501 73.258,-27.334 73.258,-27.334c14.515,36.726 5.387,63.853 2.619,70.565c17.098,18.679 27.444,42.467 27.444,71.58c-0,102.421 -62.382,124.968 -121.762,131.574c9.569,8.275 18.092,24.508 18.092,49.382c-0,35.68 -0.309,64.396 -0.309,73.179c-0,7.096 4.804,15.411 18.316,12.793c105.892,-35.301 182.21,-135.222 182.21,-253c-0.004,-147.272 -119.399,-266.658 -266.666,-266.658l-0,-0.005Z" style="fill:#fbfaf5;"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/feed/">
+                                <span class="screen-reader-text">LinkedIn</span>
+                                <svg class="svg-footer" width="20" height="20" viewBox="0 0 534 534" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+                                    <path d="M483.333,12.5l-433.333,0c-20.335,-0.207 -37.25,16.332 -37.5,36.667l0,435.083c0.295,20.303 17.196,36.791 37.5,36.583l433.333,0c20.335,0.162 37.228,-16.375 37.5,-36.708l0,-435.083c-0.362,-20.27 -17.227,-36.704 -37.5,-36.542Zm-320.125,433.333l-75.458,0l-0,-242.791l75.458,-0l0,242.791Zm-37.5,-275.875c-0.014,0 -0.027,0 -0.041,0c-24.001,0 -43.75,-19.749 -43.75,-43.75c-0,-24 19.749,-43.75 43.75,-43.75c24,0 43.75,19.75 43.75,43.75c-0.046,23.969 -19.781,43.667 -43.75,43.667c-0.056,0 -0.111,0 -0.167,0l0.208,0.083Zm320.125,275.875l-75.458,0l-0,-118.125c-0,-28.125 -0.5,-64.333 -39.208,-64.333c-38.709,0 -45.292,30.667 -45.292,62.5l-0,119.958l-75.333,0l-0,-242.791l72.333,-0l-0,33.333l1,0c10.083,-19.083 34.667,-39.208 71.375,-39.208c76.417,-0.167 90.583,50.125 90.583,115.333l0,133.333Z" style="fill:#fbfaf5;fill-rule:nonzero;stroke:#fbfaf5;stroke-width:4.17px;"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="footer-copyright">&copy; 2023 Peter Bredell, all rights reserved</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="dist/js/main.min.js"></script>
 </body>
 </html>
