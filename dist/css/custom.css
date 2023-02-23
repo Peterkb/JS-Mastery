@@ -1,0 +1,60 @@
+.header-brand {
+    display: flex;
+    align-items: center;
+}
+
+.Brand-header-text {
+    margin-left: 15px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.header-links {
+    margin: 0;
+}
+
+/* TODO Check maybe for larger size on large screens */
+.container {
+
+}
+
+.svg-footer {
+    scale: 1;
+    transition: 300ms;
+}
+
+.svg-footer:hover {
+    scale: 1.1;
+    transition: 300ms;
+}
+
+.hero-img {
+    display: grid;
+    place-items: center;
+}
+
+.imgOver {
+    position: absolute;
+}
+
+.hero {
+    
+}
+
+.site-Header {
+    padding-top: 0;
+    top: 0;
+    margin: 0;
+    height: 0vh;
+}
+
+nav {
+    padding-top: 40px;
+}
+
+.site-footer {
+}
+
+body {
+    /* overflow: hidden; */
+}
