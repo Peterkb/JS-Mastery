@@ -1,15 +1,12 @@
 {
-  "name": "switch",
+  "name": "JS-Mastery",
   "version": "1.0.0",
-  "description": "Switch Template",
-  "author": "Pasquale Vitiello <pasqualevitiello@gmail.com>",
+  "description": "Javascript Site",
+  "author": "Peter Bredell <peterbredell@gmail.com>",
   "license": "GPLv3",
   "repository": {
-    "type": "git",
-    "url": "https://bitbucket.org/pasqualevitiello/switch.git"
-  },
-  "bugs": {
-    "url": "https://bitbucket.org/pasqualevitiello/switch/issues"
+    "type": "github",
+    "url": "https://github.com/Peterkb/JS-Mastery"
   },
   "scripts": {
     "clean": "rimraf dist/{css/*,js/*,images/*}",

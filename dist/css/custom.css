@@ -35,10 +35,11 @@
 
 .imgOver {
     position: absolute;
+    scale: 0.6;
 }
 
 .hero {
-    
+    scale: 0.6;
 }
 
 .site-Header {
@@ -57,4 +58,7 @@ nav {
 
 body {
     /* overflow: hidden; */
+}
+.app-grid {
+    z-index: 99;
 }
