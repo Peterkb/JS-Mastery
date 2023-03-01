@@ -107,3 +107,5 @@ function generateNumText(fizzBuzzArr, fizzT, buzzT){
     tableSlider     -   resize tables
     tableSliderVal  -   table numbers
 */
+
+console.log("FizzLoaded");
