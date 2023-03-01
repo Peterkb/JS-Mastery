@@ -94,10 +94,15 @@ body {
     transition: 400ms;
 }
 
-.btn {
+button.btn {
     background-color: var(--color-blue);
+    color: #fff;
 }
 
+button.btn:hover {
+    background-color: var(--color-orange);
+    color: var(--color-darkblue);
+}
 
 /*Table Colours*/
 .Fizz{
