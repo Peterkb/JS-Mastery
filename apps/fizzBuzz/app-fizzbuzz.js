@@ -5,8 +5,8 @@ function getValues(){
     getById("alert").classList.add("d-none", "invisible");
     getById("tableData").innerHTML = "";
     
-    let fizzVal = gE("fizzVal").value;
-    let buzzVal = gE("buzzVal").value;
+    let fizzVal = getById("fizzVal").value;
+    let buzzVal = getById("buzzVal").value;
 
     fizzVal = parseInt(fizzVal);
     buzzVal = parseInt(buzzVal);
@@ -52,7 +52,7 @@ function generateNumText(fizzBuzzArr, fizzT, buzzT){
     let trStart = "";
     let trEnd = "";
     //used for table row numbers
-    let iCount = getId("tableSlider").value;
+    let iCount = getById("tableSlider").value;
     let iCountNum = 1;
     //sets colour class for table entries
     let colorClass = "";
