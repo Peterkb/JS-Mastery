@@ -35,7 +35,7 @@
                     <ul class="header-links">
                         <li>
                             <a href="apps.html">Apps</a>
-                            <a href="apps.html">FizzBuzz</a>
+                            <a href="#App">FizzBuzz</a>
                             <a href="apps.html">Code</a>
                             <a href="apps.html">Github</a>
                         </li>
@@ -62,7 +62,7 @@
                                 <h2 class="section-title mt-0">FizzBuzz</h2>
                                 <p class="section-paragraph">Get ready to FizzBuzz your way all the way to 100! Using loops, the numbers 1 to 100 is displayed using 'Fizz' for multiples of 3, 'Buzz' for multiples of 5, and 'FizzBuzz' for multiples of both. It's a classic coding exercise that never gets old, click and start FizzBuzzing!</p>
                                 <div class="cta-cta">
-                                    <a class="button button-primary" href="#">Try it out!</a>
+                                    <a class="button button-primary rounded-1" href="#App">Try it out!</a>
                                 </div>
                                 <div class="features-image">
                                     <img class="features-illustration asset-dark" src="/dist/images/features-illustration-dark.svg" alt="Feature illustration">
@@ -77,13 +77,14 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="features-wrap">
                             <div class="feature is-revealing">
                                 <div class="feature-inner">
                                     <div class="feature-icon">
                                         <img class="asset-light" src="/dist/images/feature-01-light.svg" alt="Feature 01">
                                         <img class="asset-dark" src="/dist/images/feature-01-dark.svg" alt="Feature 01">
-                                    </div>
+                                    </div>                                    
                                     <div class="feature-content">
                                         <h3 class="feature-title mt-0">Languages and Libraries</h3>
                                         <p class="text-sm mb-0">This page was crafted using the following programming languages and development tools.</p>
@@ -91,14 +92,15 @@
                                             <!-- <i class="devicon-javascript-plain" title="JavaScript"></i>
                                             <i class="devicon-html5-plain" title="Html5"></i>
                                             <i class="devicon-css3-plain" title="CSS3"></i> -->
-                                            <img class="icon-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" />
-                                            <img class="icon-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" />
-                                            <img class="icon-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" />
-                                            <img class="icon-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" />
+                                            <img class="icon-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" title="JavaScript" />
+                                            <img class="icon-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" title="Html5" />
+                                            <img class="icon-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" title="Css3" />
+                                            <img class="icon-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" title="bootstrap" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="feature is-revealing">
                                 <div class="feature-inner">
                                     <div class="feature-icon">
@@ -115,24 +117,10 @@
                     </div>
                 </div>
             </section>
-            
-            <section class="cta section">
-                <div class="container-sm">
-                    <div class="cta-inner section-inner">
-                        <div class="cta-header text-center">
-                            <h2 class="section-title mt-0">Buzz Off to Fun</h2>
-                            <p class="section-paragraph">Don't fizz out, click below to try out the app and view the code behind!</p>
-                            <div class="cta-cta">
-                                <a class="button button-primary" href="#">Try it out!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             <!-- Application -->
 
-            <section class="flex-shrink-0">
+            <section class="flex-shrink-0" id="App">
                     <div class="container mt-4 mt-lg-5">
                         <div class="row row-cols-1 row-cols-lg-2 gx-4 border-bottom border-2">
                             <div class="col border-end border-2">
@@ -195,13 +183,52 @@
 
             <!-- Code Behind -->
             <!-- TODO Make it colapsible -->
-
-            <section>
-
-            </section>
-
             <section class="flex-shrink-0"><div class="container py-5 px-5 mt-5">
                 <h2 class="border-1 border-bottom border-dark pb-2">The Code for Fizz Buzz</h2>
+                <div class="row">
+                    <div class="collapsible">
+                        <input class="border border-2 border-dark" type="checkbox" id="collapsible-head">
+
+                        <label for="collapsible-head">function getValues() {}</label>
+                        <div class="collapsible-text">
+                            <h5>Description</h5>
+                            <p>The getValues function is called directly from the page using a 'click' event listener on the submit button.</p>
+                            <pre class="line-numbers">
+                                <code class="language-javascript">
+                                    function getValues()
+                                    {
+                                        //initialize page
+                                        gE("alert").classList.add("d-none", "invisible");
+                                        gE("tableData").innerHTML = "";
+                                        
+                                        let fizzVal = gE("fizzVal").value;
+                                        let buzzVal = gE("buzzVal").value;
+                                    
+                                        fizzVal = parseInt(fizzVal);
+                                        buzzVal = parseInt(buzzVal);
+                                    
+                                        let fizzTxt = "Fizz";
+                                        let buzzTxt = "Buzz";
+                                    
+                                        if (Number.isInteger(fizzVal) && Number.isInteger(buzzVal)) {
+                                            //Create array
+                                            fizzBuzzArr = CreateArray(fizzVal, buzzVal, fizzTxt, buzzTxt);
+                                    
+                                            //Display array
+                                            gE("tableData", "tableInfo").classList.remove("invisible", "d-none");
+                                            gE("tableInfo").classList.remove("d-none");
+                                            generateNumText(fizzBuzzArr ,fizzTxt, buzzTxt);
+                                        }else{
+                                            gE("alert").classList.remove("d-none", "invisible");
+                                        }
+                                    }
+                                </code>
+                            </pre>
+                        </div>
+
+                    </div>
+                </div>
+                
                 <div class="row row-cols-1 row-cols-lg-2">
                     <div class="col-lg-8">
                         <pre class="line-numbers">
@@ -310,7 +337,7 @@ function generateNumText(fizzBuzzArr, fizzT, buzzT){
                         
                         <h5>getValues(){</h5>
                         <p>Description</p>
-                        <p>*The getValues function is called directly from the app.html page using the methods .getElementByID together with .addEventListener.</p>
+                        <p>*The getValues function is called directly from the page using a 'click' event listener on the submit button.</p>
                         <h5>}</h5>
                         
                         <h5>gE(id){</h5>
@@ -328,6 +355,20 @@ function generateNumText(fizzBuzzArr, fizzT, buzzT){
                     </div>
                 </div>
             </div>
+            </section>           
+            
+            <section class="cta section">
+                <div class="container-sm">
+                    <div class="cta-inner section-inner">
+                        <div class="cta-header text-center">
+                            <h2 class="section-title mt-0">Buzz Off to Try out the other Apps</h2>
+                            <p class="section-paragraph">Don't fizz out, click below to try out the other apps the collection.</p>
+                            <div class="cta-cta">
+                                <a class="button button-primary rounded-1" href="#App">Try it out!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
         </main>

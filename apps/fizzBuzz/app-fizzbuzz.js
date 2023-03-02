@@ -14,7 +14,8 @@ function getValues(){
     let fizzTxt = "Fizz";
     let buzzTxt = "Buzz";
 
-    if (Number.isInteger(fizzVal) && Number.isInteger(buzzVal)) {
+    if (Number.isInteger(fizzVal) && Number.isInteger(buzzVal))
+    {
         //Create array
         fizzBuzzArr = CreateArray(fizzVal, buzzVal, fizzTxt, buzzTxt);
 
@@ -22,7 +23,9 @@ function getValues(){
         getById("tableData", "tableInfo").classList.remove("invisible", "d-none");
         getById("tableInfo").classList.remove("d-none");
         generateNumText(fizzBuzzArr ,fizzTxt, buzzTxt);
-    }else{
+    }
+    else
+    {
         getById("alert").classList.remove("d-none", "invisible");
     }
 }
@@ -46,11 +49,13 @@ function CreateArray(fizzVal, buzzVal, fizzTxt, buzzTxt){
 
 //Display values
 function generateNumText(fizzBuzzArr, fizzT, buzzT){
-    //sets empty array to insert
+    //sets empty string to insert array template
     let tableText = "";
-    //used for table row tags
-    let trStart = "";
-    let trEnd = "";
+
+    //used to set table row tags
+    let tableRowStart = "";
+    let tableRowEnd = "";
+
     //used for table row numbers
     let iCount = getById("tableSlider").value;
     let iCountNum = 1;
@@ -60,19 +65,19 @@ function generateNumText(fizzBuzzArr, fizzT, buzzT){
     for (let i = 1;i <= fizzBuzzArr.length-1;i++){
         //sets the table row numbers
         if (iCount == 1){
-            trStart = "<tr>";
-            trEnd = "</tr>";
+            tableRowStart = "<tr>";
+            tableRowEnd = "</tr>";
         } else if (iCountNum == 1){
-            trStart = "<tr>";
-            trEnd = "";
+            tableRowStart = "<tr>";
+            tableRowEnd = "";
             iCountNum++;
         }else if (iCountNum >= iCount){
-            trStart = "";
-            trEnd = "</tr>";
+            tableRowStart = "";
+            tableRowEnd = "</tr>";
             iCountNum = 1;
         } else {
-            trStart = "";
-            trEnd = "";
+            tableRowStart = "";
+            tableRowEnd = "";
             iCountNum++;
         }
         //Checks how to display the FizzBuzz array
@@ -89,7 +94,7 @@ function generateNumText(fizzBuzzArr, fizzT, buzzT){
             inum = fizzBuzzArr[i];
         }
 
-        tableText += `${trStart}<td class="${colorClass}">${inum}</td>${trEnd}`;
+        tableText += `${tableRowStart}<td class="${colorClass}">${inum}</td>${tableRowEnd}`;
 
     }
 
