@@ -4,9 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>JS Coding Challenges</title>
+    <title>JS Excercises</title>
     <link rel="shortcut icon" href="/dist/favicon.ico" type="image/x-icon" />
+
     <link href="https://fonts.googleapis.com/css?family=Heebo:400,700|IBM+Plex+Sans:600" rel="stylesheet">
+
     <link rel="stylesheet" href="/dist/css/style.css">
     <link rel="stylesheet" href="/dist/css/custom.css">
     
@@ -37,7 +39,7 @@
                             <a href="apps.html">Apps</a>
                             <a href="#App">FizzBuzz</a>
                             <a href="#Code">Code</a>
-                            <a href="">Github</a>
+                            <a href="https://github.com/Peterkb/JS-Mastery/tree/main/apps/fizzBuzz">Github</a>
                         </li>
                         <li><a href="https://peter-bredell.com/" target="_blank">Portfolio</a></li>
                         <li>                            
@@ -109,7 +111,7 @@
                                     </div>
                                     <div class="feature-content">
                                         <h3 class="feature-title mt-0">Programming Logic</h3>
-                                        <p class="text-sm mb-0">Loops, Functions, Dom Manipulation, If/Else, Boolean Logic, Variables, Parameters, User input.</p>
+                                        <p class="text-sm mb-0">Loops, Functions, Dom Manipulation, If/Else, Boolean Logic, Ternary operators, Variables, Parameters, User Input.</p>
                                     </div>
                                 </div>
                             </div>
@@ -195,8 +197,8 @@
 
             <!-- Code Behind -->
             <section class="flex-shrink-0"><div class="container mt-4 mt-lg-5">
-                <h2 class="border-1 border-bottom border-dark pb-2">The Code for FizzBuzz</h2>
-                <h5>App Logic Functions</h5>
+                <h2 class="border-bottom border-2 pb-2">The Code for FizzBuzz</h2>
+                <h5>Logic Functions</h5>
                 <div class="row">
                     
                 <!-- Function createArray() -->
@@ -270,7 +272,6 @@ function getValues()
                 <div class="collapsible">
                     <input class="border border-2 border-dark" type="checkbox" id="collapsible-2">
 
-                    <!-- Function getValues -->
                     <label for="collapsible-2">
                         <span class="token keyword">function</span>
                         <span class="token function">createArray</span>
@@ -317,7 +318,6 @@ function createArray(fizzValue, buzzValue, fizzText, buzzText)
                 <div class="collapsible">
                     <input class="border border-2 border-dark" type="checkbox" id="collapsible-3">
 
-                    <!-- Function getValues -->
                     <label for="collapsible-3">
                         <span class="token keyword">function</span>
                         <span class="token function">createArray</span>
@@ -359,11 +359,10 @@ function createTable(fizzValue, buzzValue, fizzText, buzzText)
                 
                 <h5>Helper Functions</h5>
 
-                <!-- Function () -->
+                <!-- Function getElementBy -->
                 <div class="collapsible">
                     <input class="border border-2 border-dark" type="checkbox" id="collapsible-4">
 
-                    <!-- Function getValues -->
                     <label for="collapsible-4">
                         <span class="token keyword">function</span>
                         <span class="token function">getElementBy</span>
@@ -377,26 +376,20 @@ function createTable(fizzValue, buzzValue, fizzText, buzzText)
                             <code class="language-javascript">
 /*
 * Description
-* Create and return an array of 100 numbers substituting values for Fizz or Buzz where appropriate.
-* 1. 
-* 2. 
-* 3. 
+* A helper function that I use to shorten targeting a DOM element
+* 1. Takes in the type and name of element or Id and returns it into a variable
+* eg: let fizzValue = getElementBy('id', "fizzValue").value;
 */
-function createTable(fizzValue, buzzValue, fizzText, buzzText)
+function getElementBy(type, value)
 {
-    let array = [];
-
-    // Loop through 100 numbers an push into array either number of FizzBuzz value
-    for (i = 0;i <= 100;i++) {
-
-        // Add Fizz, Buzz, or Both if numbers are divisible
-        // If neither Fizz or Buzz is added set value to number of index
-        let value = ((i % fizzValue == 0 ? fizzText : "") + (i % buzzValue == 0 ? buzzText : "") || i);
-
-        array.push(value);
-    }
-
-    return array;
+    if(type === "id" || type === "id")
+        return document.getElementById(value);
+    
+    if(type === 'class' || type === 'Class' || type === 'ClassName' || type === 'className')
+        return document.getElementsByClassName(value);
+    
+    if(type === 'tag' || type === 'Tag' || type === 'TagName' || type === 'tagName')
+        return document.getElementsByTagName(value);
 }
                             </code>
                         </pre>
@@ -448,7 +441,7 @@ function createTable(fizzValue, buzzValue, fizzText, buzzText)
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/feed/">
+                            <a href="https://www.linkedin.com/in/pkbredell">
                                 <span class="screen-reader-text">LinkedIn</span>
                                 <svg class="svg-footer" width="20" height="20" viewBox="0 0 534 534" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
                                     <path d="M483.333,12.5l-433.333,0c-20.335,-0.207 -37.25,16.332 -37.5,36.667l0,435.083c0.295,20.303 17.196,36.791 37.5,36.583l433.333,0c20.335,0.162 37.228,-16.375 37.5,-36.708l0,-435.083c-0.362,-20.27 -17.227,-36.704 -37.5,-36.542Zm-320.125,433.333l-75.458,0l-0,-242.791l75.458,-0l0,242.791Zm-37.5,-275.875c-0.014,0 -0.027,0 -0.041,0c-24.001,0 -43.75,-19.749 -43.75,-43.75c-0,-24 19.749,-43.75 43.75,-43.75c24,0 43.75,19.75 43.75,43.75c-0.046,23.969 -19.781,43.667 -43.75,43.667c-0.056,0 -0.111,0 -0.167,0l0.208,0.083Zm320.125,275.875l-75.458,0l-0,-118.125c-0,-28.125 -0.5,-64.333 -39.208,-64.333c-38.709,0 -45.292,30.667 -45.292,62.5l-0,119.958l-75.333,0l-0,-242.791l72.333,-0l-0,33.333l1,0c10.083,-19.083 34.667,-39.208 71.375,-39.208c76.417,-0.167 90.583,50.125 90.583,115.333l0,133.333Z" style="fill:#fbfaf5;fill-rule:nonzero;stroke:#fbfaf5;stroke-width:4.17px;"/>

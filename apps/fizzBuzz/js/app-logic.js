@@ -2,15 +2,15 @@
 function getValues()
 {
     // clears alert
-    getElementBy('id', "alert").classList.add("d-none", "invisible");
+    getElementBy("id", "alert").classList.add("d-none", "invisible");
     // Resets table information
-    getElementBy('id', "tableData").innerHTML = "";
+    getElementBy("id", "tableData").innerHTML = "";
 
     //Set fizz and buzz input values to variables and attempt to parse into integers
-    let fizzValue = getElementBy('id', "fizzValue").value;
+    let fizzValue = getElementBy("id", "fizzValue").value;
     fizzValue = parseInt(fizzValue);
 
-    let buzzValue = getElementBy('id', "buzzValue").value;
+    let buzzValue = getElementBy("id", "buzzValue").value;
     buzzValue = parseInt(buzzValue);
 
     //Sets name for Fizz and Buzz that can also be used as class names for CSS styling
@@ -27,12 +27,12 @@ function getValues()
         displayTable(fizzBuzzArr ,fizzText, buzzText);
 
         //Remove hidden class from table and table info
-        getElementBy('id', "tableData").classList.remove("invisible", "d-none");
-        getElementBy('id', "tableInfo").classList.remove("invisible", "d-none");
+        getElementBy("id", "tableData").classList.remove("invisible", "d-none");
+        getElementBy("id", "tableInfo").classList.remove("invisible", "d-none");
     }
     else
     {
-        getElementBy('id', "alert").classList.remove("d-none", "invisible");
+        getElementBy("id", "alert").classList.remove("d-none", "invisible");
     }
 }
 
@@ -55,75 +55,81 @@ function createArray(fizzValue, buzzValue, fizzText, buzzText)
 }
 
 //Display values
-function displayTable(fizzBuzzArr, fizzT, buzzT)
+function displayTable(array, fizzT, buzzT)
 {
-    //sets empty string to insert array template
-    let tableText = "";
+    //Reset Table
+    let tableHtml = "";
 
-    //used to set table row tags
+    //Set table row tags
     let tableRowStart = "";
     let tableRowEnd = "";
 
     //used for table row numbers
-    let iCount = getElementBy('id', "tableSlider").value;
+    let iCount = getElementBy("id", "tableSlider").value;
     let iCountNum = 1;
+
     //sets colour class for table entries
     let colorClass = "";
 
-    for (let i = 1;i <= fizzBuzzArr.length-1;i++){
+    for (let i = 1;i <= array.length-1;i++){
         //sets the table row numbers
-        if (iCount == 1){
+        if (iCount == 1)
+        {
             tableRowStart = "<tr>";
             tableRowEnd = "</tr>";
-        } else if (iCountNum == 1){
+        }
+        else if (iCountNum == 1)
+        {
             tableRowStart = "<tr>";
             tableRowEnd = "";
             iCountNum++;
-        }else if (iCountNum >= iCount){
+        }
+        else if (iCountNum >= iCount)
+        {
             tableRowStart = "";
             tableRowEnd = "</tr>";
             iCountNum = 1;
-        } else {
+        }
+        else
+        {
             tableRowStart = "";
             tableRowEnd = "";
             iCountNum++;
         }
-        //Checks how to display the FizzBuzz array
-        colorClass = fizzBuzzArr[i];
+
+        //Set CSS class
+        colorClass = array[i];
         
-        if (fizzBuzzArr[i] == fizzT + buzzT) {
-            inum = `<span class="${fizzBuzzArr[i]}">${fizzBuzzArr[i]}</span>`;
+        if (array[i] == fizzT + buzzT) {
+            inum = `<span class="${array[i]}">${array[i]}</span>`;
             colorClass = "";
-        } else if (fizzBuzzArr[i] == fizzT){
-            inum = fizzBuzzArr[i];
-        } else if (fizzBuzzArr[i] == buzzT){
-            inum = fizzBuzzArr[i];
+        } else if (array[i] == fizzT){
+            inum = array[i];
+        } else if (array[i] == buzzT){
+            inum = array[i];
         } else {
-            inum = fizzBuzzArr[i];
+            inum = array[i];
         }
 
-        tableText += `${tableRowStart}<td class="${colorClass}">${inum}</td>${tableRowEnd}`;
+        tableHtml += `${tableRowStart}<td class="${colorClass}">${inum}</td>${tableRowEnd}`;
 
     }
 
-    getElementBy('id', "tableData").innerHTML = tableText;
+    getElementBy("id", "tableData").innerHTML = tableHtml;
 
 }
 
 //Shorten Code
-// function getById(id){
-//     return document.getElementById(id);
-// }
-
 function getElementBy(type, value)
 {
-    if(type === 'id' || type === 'Id') return document.getElementById(value);
-
-    if(type === 'class' || type === 'Class' || type === 'ClassName') return document.getElementsByClassName(value);
-
-    if(type === 'tag' || type === 'Tag' || type === 'TagName') return document.getElementsByTagName(value);
-
-    return null
+    if(type === "id" || type === "id")
+        return document.getElementById(value);
+    
+    if(type === 'class' || type === 'Class' || type === 'ClassName' || type === 'className')
+        return document.getElementsByClassName(value);
+    
+    if(type === 'tag' || type === 'Tag' || type === 'TagName' || type === 'tagName')
+        return document.getElementsByTagName(value);
 }
 
 
