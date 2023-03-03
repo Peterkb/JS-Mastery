@@ -35,29 +35,17 @@
   }
 
   function checkLights () {
-    // let labelText = lightSwitch.parentNode.querySelector('.label-text')
-    // if (lightSwitch.checked) {
-    //   body.classList.remove('lights-off')
-    //   if (labelText) {
-    //     labelText.innerHTML = 'dark'
-    //   }
-    // } else {
-    //   body.classList.add('lights-off')
-    //   if (labelText) {
-    //     labelText.innerHTML = 'light'
-    //   }
-    // }
-    // let labelText = lightSwitch.parentNode.querySelector('.label-text')
+    let labelText = lightSwitch.parentNode.querySelector('.label-text')
     if (lightSwitch.checked) {
-      body.classList.add('lights-off')
-      // if (labelText) {
-      //   labelText.innerHTML = 'light'
-      // }
-    } else {
       body.classList.remove('lights-off')
-      // if (labelText) {
-      //   labelText.innerHTML = 'dark'
-      // }
+      if (labelText) {
+        labelText.innerHTML = 'dark'
+      }
+    } else {
+      body.classList.add('lights-off')
+      if (labelText) {
+        labelText.innerHTML = 'light'
+      }
     }
   }
 }())

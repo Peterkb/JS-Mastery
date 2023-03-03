@@ -30,7 +30,7 @@
                         <li><a href="https://peter-bredell.com/" target="_blank">Portfolio</a></li>
                         <li>                            
                             <div class="lights-toggle">
-                                <input id="lights-toggle" type="checkbox" name="lights-toggle" class="switch">
+                                <input onclick="setSiteTheme()" id="lights-toggle" type="checkbox" name="lights-toggle" class="switch">
                                 <!-- <label for="lights-toggle" class="text-xs"><span><span class="label-text"></span></span></label> -->
                                 <label for="lights-toggle" class="text-xs"><span><span class="label-text"></span></span></label>
                             </div>
@@ -131,6 +131,9 @@
             </div>
         </footer>
     </div>
+
+    <!-- Set Theme from LocalStorage -->
+    <script src="/dist/js/theme.js"></script>
 
     <script src="dist/js/main.min.js"></script>
 </body>

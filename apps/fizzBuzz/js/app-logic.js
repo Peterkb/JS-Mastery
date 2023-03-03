@@ -42,7 +42,7 @@ function createArray(fizzValue, buzzValue, fizzText, buzzText)
     let array = [];
 
     // Loop through 100 numbers an push into array either number of FizzBuzz value
-    for (i = 0;i <= 100;i++) {
+    for (let i = 1;i <= 100;i++) {
 
         // Add Fizz, Buzz, or Both if numbers are divisible
         // If neither Fizz or Buzz is added set value to number of index
@@ -55,8 +55,9 @@ function createArray(fizzValue, buzzValue, fizzText, buzzText)
 }
 
 //Display values
-function displayTable(array, fizzT, buzzT)
+function displayTable(array, fizzName, buzzName)
 {
+
     //Reset Table
     let tableHtml = "";
 
@@ -65,15 +66,20 @@ function displayTable(array, fizzT, buzzT)
     let tableRowEnd = "";
 
     //used for table row numbers
-    let iCount = getElementBy("id", "tableSlider").value;
-    let iCountNum = 1;
+    let columns = getElementBy("id", "tableSlider").value;
+    let iCountNum = 1;    
+
+    //Value that will be displayed
+    let fizBuzzValue = ''
 
     //sets colour class for table entries
     let colorClass = "";
 
-    for (let i = 1;i <= array.length-1;i++){
+    
+    array.map((element, index) => {
+
         //sets the table row numbers
-        if (iCount == 1)
+        if (columns == 1)
         {
             tableRowStart = "<tr>";
             tableRowEnd = "</tr>";
@@ -84,7 +90,7 @@ function displayTable(array, fizzT, buzzT)
             tableRowEnd = "";
             iCountNum++;
         }
-        else if (iCountNum >= iCount)
+        else if (iCountNum >= columns)
         {
             tableRowStart = "";
             tableRowEnd = "</tr>";
@@ -98,25 +104,24 @@ function displayTable(array, fizzT, buzzT)
         }
 
         //Set CSS class
-        colorClass = array[i];
+        colorClass = element;
         
-        if (array[i] == fizzT + buzzT) {
-            inum = `<span class="${array[i]}">${array[i]}</span>`;
+        if (element == fizzName + buzzName) {
+            fizBuzzValue = `<span class="${element}">${element}</span>`;
             colorClass = "";
-        } else if (array[i] == fizzT){
-            inum = array[i];
-        } else if (array[i] == buzzT){
-            inum = array[i];
+        } else if (element == fizzName){
+            fizBuzzValue = element;
+        } else if (element == buzzName){
+            fizBuzzValue = element;
         } else {
-            inum = array[i];
+            fizBuzzValue = element;
         }
 
-        tableHtml += `${tableRowStart}<td class="${colorClass}">${inum}</td>${tableRowEnd}`;
+        tableHtml += `${tableRowStart}<td class="${colorClass}">${fizBuzzValue}</td>${tableRowEnd}`;
 
-    }
-
+    })
+    
     getElementBy("id", "tableData").innerHTML = tableHtml;
-
 }
 
 //Shorten Code

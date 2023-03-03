@@ -44,8 +44,7 @@
                         <li><a href="https://peter-bredell.com/" target="_blank">Portfolio</a></li>
                         <li>                            
                             <div class="lights-toggle">
-                                <input id="lights-toggle" type="checkbox" name="lights-toggle" class="switch">
-                                <!-- <label for="lights-toggle" class="text-xs"><span><span class="label-text"></span></span></label> -->
+                                <input onclick="setSiteTheme()" id="lights-toggle" type="checkbox" name="lights-toggle" class="switch">
                                 <label for="lights-toggle" class="text-xs"><span><span class="label-text"></span></span></label>
                             </div>
                         </li>
@@ -285,20 +284,22 @@ function getValues()
                             <code class="language-javascript">
 /*
 * Description
-* Create and return an array of 100 numbers substituting values for Fizz or Buzz where appropriate.
-* 1. The function takes in the values and names for Fizz and Buzz that is used for populating the array.
-* 2. An empty array is created
+* Create and returns an array of 100 numbers substituting values for Fizz or Buzz where appropriate.
+* 1. The function takes in four parameters:
+*   a. two integers for the "fizz" and "buzz" values
+*   b. two strings for the text to display when those values are present.
+* 2. An empty array is made to store the formatted numbers.
 * 3. The array is populated by looping over 100 numbers and using a ternary operator is substituted where appropriate.
 *   a. If it is divisible by the value of Fizz or Buzz, they are substituted by either Fizz, Buzz or FizzBuzz.
 *   b. If neither is substituted the value of the array is used.
-* 4. The array is then returned into a variable to display using a table template generator function.
+* 4. The array is returned into a variable to display using a table template generator function.
 */
 function createArray(fizzValue, buzzValue, fizzText, buzzText)
 {
     let array = [];
 
     // Loop through 100 numbers an push into array either number of FizzBuzz value
-    for (i = 0;i <= 100;i++) {
+    for (let i = 1;i <= 100;i++) {
 
         // Add Fizz, Buzz, or Both if numbers are divisible
         // If neither Fizz or Buzz is added set value to number of index
@@ -320,10 +321,9 @@ function createArray(fizzValue, buzzValue, fizzText, buzzText)
 
                     <label for="collapsible-3">
                         <span class="token keyword">function</span>
-                        <span class="token function">createArray</span>
-                        <span class="token punctuation">(fizzValue, buzzValue, fizzText, buzzText) {</span>
-                        <span class="token keyword">returns</span>
-                        <span class="token punctuation">an array of fizzbuzz values }</span>
+                        <span class="token function">displayTable</span>
+                        <span class="token punctuation">(array, fizzName, buzzName) {</span>
+                        <span class="token punctuation">displays FizzBuzz the array inside a table }</span>
                     </label>
 
                     <div class="collapsible-text">
@@ -331,26 +331,81 @@ function createArray(fizzValue, buzzValue, fizzText, buzzText)
                             <code class="language-javascript">
 /*
 * Description
-* Create and return an array of 100 numbers substituting values for Fizz or Buzz where appropriate.
-* 1. 
-* 2. 
-* 3. 
+* Displays FizzBuzz array in a table of numbers with special formatting.
+* 1. Maps an array of numbers, a string for "fizz", and a string for "buzz".
+* 2. Resets the HTML table to start with an empty string.
+* 3. Sets up variables for the start and end of each row of the table
+* 4. sets number of columns based on a slider element in the HTML.
+* 5. Determines the appropriate table row and color class based on array values.
+* 6. Appends the formatted number to the tableHTML string.
+* 7. Finally, tableHTML is used to update the table element in the HTML document.
 */
-function createTable(fizzValue, buzzValue, fizzText, buzzText)
+function displayTable(array, fizzName, buzzName)
 {
-    let array = [];
+    //Reset Table
+    let tableHtml = "";
 
-    // Loop through 100 numbers an push into array either number of FizzBuzz value
-    for (i = 0;i <= 100;i++) {
+    //Set table row tags
+    let tableRowStart = "";
+    let tableRowEnd = "";
 
-        // Add Fizz, Buzz, or Both if numbers are divisible
-        // If neither Fizz or Buzz is added set value to number of index
-        let value = ((i % fizzValue == 0 ? fizzText : "") + (i % buzzValue == 0 ? buzzText : "") || i);
+    //used for table row numbers
+    let columns = getElementBy("id", "tableSlider").value;
+    let iCountNum = 1;    
 
-        array.push(value);
-    }
+    //Value that will be displayed
+    let fizBuzzValue = ''
 
-    return array;
+    //sets colour class for table entries
+    let colorClass = "";
+
+    
+    array.map((element, index) => {
+
+        //sets the table row numbers
+        if (columns == 1)
+        {
+            tableRowStart = "<tr>";
+            tableRowEnd = "</tr>";
+        }
+        else if (iCountNum == 1)
+        {
+            tableRowStart = "<tr>";
+            tableRowEnd = "";
+            iCountNum++;
+        }
+        else if (iCountNum >= columns)
+        {
+            tableRowStart = "";
+            tableRowEnd = "</tr>";
+            iCountNum = 1;
+        }
+        else
+        {
+            tableRowStart = "";
+            tableRowEnd = "";
+            iCountNum++;
+        }
+
+        //Set CSS class
+        colorClass = element;
+        
+        if (element == fizzName + buzzName) {
+            fizBuzzValue = `<span class="${element}">${element}</span>`;
+            colorClass = "";
+        } else if (element == fizzName){
+            fizBuzzValue = element;
+        } else if (element == buzzName){
+            fizBuzzValue = element;
+        } else {
+            fizBuzzValue = element;
+        }
+
+    tableHtml += `${tableRowStart}<td class="${colorClass}">${fizBuzzValue}</td>${tableRowEnd}`;
+
+})
+    
+    getElementBy("id", "tableData").innerHTML = tableHtml;
 }
                             </code>
                         </pre>
@@ -455,6 +510,8 @@ function getElementBy(type, value)
         </footer>
     </div>
 
+    <!-- Set Theme from LocalStorage -->
+    <script src="/dist/js/theme.js"></script>
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="/dist/js/main.min.js"></script>
