@@ -191,3 +191,7 @@ td > span.FizzBuzz{
     opacity: 1;
     top: 0;
 }
+
+.slideContainer {
+    display: flex;
+}

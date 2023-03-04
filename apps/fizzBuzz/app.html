@@ -90,13 +90,10 @@
                                         <h3 class="feature-title mt-0">Languages and Libraries</h3>
                                         <p class="text-sm mb-0">This page was crafted using the following programming languages and development tools.</p>
                                         <div class="icon-grid">
-                                            <!-- <i class="devicon-javascript-plain" title="JavaScript"></i>
-                                            <i class="devicon-html5-plain" title="Html5"></i>
-                                            <i class="devicon-css3-plain" title="CSS3"></i> -->
-                                            <img class="icon-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" title="JavaScript" />
-                                            <img class="icon-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" title="Html5" />
-                                            <img class="icon-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" title="Css3" />
-                                            <img class="icon-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" title="bootstrap" />
+                                            <img class="icon-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg"/>
+                                            <img class="icon-logo" data-tooltip="Html5" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg"  />
+                                            <img class="icon-logo" data-tooltip="CSS3" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg"  />
+                                            <img class="icon-logo" data-tooltip="Bootstrap" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" />
                                         </div>
                                     </div>
                                 </div>
@@ -113,6 +110,19 @@
                                         <p class="text-sm mb-0">Loops, Functions, Dom Manipulation, If/Else, Boolean Logic, Ternary operators, Variables, Parameters, User Input.</p>
                                     </div>
                                 </div>
+                            </div>
+
+							<div class="feature is-revealing">
+                                <div class="feature-inner">
+                                    <div class="feature-icon">
+										<img class="asset-light" src="/dist/images/feature-03-light.svg" alt="Feature 03">
+										<img class="asset-dark" src="/dist/images/feature-03-dark.svg" alt="Feature 03">
+                                    </div>
+									<div class="feature-content">
+                                    	<h3 class="feature-title mt-0">Bonus Features</h3>
+                                    	<p class="text-sm mb-0">Persistant theme toggle using local storage.</p>
+									</div>
+								</div>
                             </div>
                         </div>
                     </div>
@@ -176,8 +186,8 @@
                                         <h5>Drag the slider to change column numbers (1-10).</h5>
                                         <div class="slideContainer">
                                             <input type="range" min="1" max="10" value="10" class="form-range" id="tableSlider">
+                                            <p id="tableInfoDisplay">Rows: 25 | Colums: 4</p>
                                         </div>
-                                        <p>Rows: <span id="tableRowVal">25</span> | Colums: <span id="tableDataVal">4</span></p>
                                     </div>
                                     <!--Generated fizzbuzz table is inserted here-->
                                 </table>
@@ -521,16 +531,25 @@ function getElementBy(type, value)
         document.getElementById("btnSubmit").addEventListener("click",getValues);
         
         let slider = document.getElementById("tableSlider");
-        let outputC = document.getElementById("tableDataVal");
-        let outputR = document.getElementById("tableRowVal");
-        outputC.innerHTML = slider.value;
-        outputR.innerHTML = Math.ceil(100/slider.value);
+
+        // let outputC = document.getElementById("tableDataVal");
+        // let outputR = document.getElementById("tableRowVal");
+
+        let tableInfoDisplay = document.getElementById("tableInfoDisplay")
+
+        tableInfoDisplay.innerHTML =  `Rows: ${slider.value} | Colums: ${Math.ceil(100/slider.value)}`
+
+        // outputC.innerHTML = slider.value;
+        // outputR.innerHTML = Math.ceil(100/slider.value);
             
         slider.oninput = function changeTableNum(){
-            outputC.innerHTML = this.value;
-            outputR.innerHTML = Math.ceil(100/this.value);
+            // outputC.innerHTML = this.value;
+            // outputR.innerHTML = Math.ceil(100/this.value);
+            tableInfoDisplay.innerHTML =  `Rows: ${slider.value} | Colums: ${Math.ceil(100/slider.value)}`
             getValues();
         };
     </script>
 </body>
 </html>
+
+Rows: 25 | Colums: 4
