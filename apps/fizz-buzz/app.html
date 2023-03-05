@@ -132,14 +132,14 @@
             <!-- Application -->
 
             <section class="flex-shrink-0" id="App">
-                    <div class="container mt-4 mt-lg-5">
-                        <div class="row row-cols-1 row-cols-lg-2 gx-4 border-bottom border-2">
-                            <div class="col border-end border-2">
+                    <div class="container mt-4 mb-4 mt-lg-5 mb-lg-5">
+                        <div class="row row-cols-1 row-cols-lg-2 gx-4 border-bottom border-1 border-info">
+                            <div class="col border-end border-1 border-info">
                                 <h1>Fizz Buzz App</h1>
-                                <p class="border-bottom border-2 pb-3">When it counts you <strong class="clr3">Fizz Buzz</strong>. A javascript coding exercise using loops. Write a program that prints the numbers from 1 to 100 and displays <strong class="clr1">"Fizz"</strong> for multiples of '3', <strong class="clr2">"Buzz"</strong> for multiples of '5' and <strong class="clr3">"FizzBuzz"</strong> for multiples of both.</p>
+                                <p class="border-bottom border-1 border-info pb-3">When it counts you <strong class="clr3">Fizz Buzz</strong>. A javascript coding exercise using loops. Write a program that prints the numbers from 1 to 100 and displays <strong class="clr1">"Fizz"</strong> for multiples of '3', <strong class="clr2">"Buzz"</strong> for multiples of '5' and <strong class="clr3">"FizzBuzz"</strong> for multiples of both.</p>
             
                                 <h2>Instructions:</h2>
-                                <p>Enter a fizz and buzz value. Press the button and the values will appear.</p>
+                                <p>Enter a fizz and buzz value. Press submit and generate the table.</p>
                             </div>
                             <div class="col">
                                 <div class="row">
@@ -178,16 +178,16 @@
                         <div class="row" id="Results">
                             <!-- App Output -->
                             <div class="col-12 mt-3">
-                                <h2 class="border-bottom border-2 pb-2">Results</h2>
+                                <h2 class="pb-2">Results</h2>
 
                                 <table class="table table-dark table-striped d-none invisible mt-3" id="tableData">
                                     <!--Slider-->
                                     <div class="d-none" id="tableInfo">
-                                        <h5>Drag the slider to change column numbers (1-10).</h5>
+                                        <h5>Drag the slider from 1 to 10 to change column numbers.</h5>
                                         <div class="slideContainer">
                                             <input type="range" min="1" max="10" value="10" class="form-range" id="tableSlider">
-                                            <p id="tableInfoDisplay">Rows: 25 | Colums: 4</p>
                                         </div>
+                                        <p id="tableInfoDisplay">Rows: 25 | Colums: 4</p>
                                     </div>
                                     <!--Generated fizzbuzz table is inserted here-->
                                 </table>
@@ -206,13 +206,13 @@
 
             <!-- Code Behind -->
             <section class="flex-shrink-0"><div class="container mt-4 mt-lg-5" id="Code">
-                <h2 class="border-bottom border-2 pb-2">The Code for FizzBuzz</h2>
+                <h2 class="border-bottom border-1 border-info pb-2">The Code for FizzBuzz</h2>
                 <h5>Logic Functions</h5>
                 <div class="row">
                     
                 <!-- Function createArray() -->
                 <div class="collapsible">
-                    <input class="border border-2 border-dark" type="checkbox" id="collapsible-1">
+                    <input class="border border-1 border-info" type="checkbox" id="collapsible-1">
 
                     <!-- Function getValues -->
                     <label for="collapsible-1">

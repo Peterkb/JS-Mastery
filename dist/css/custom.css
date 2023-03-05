@@ -3,6 +3,8 @@
     --color-orange: #FFBC48;
     --color-blue: #535FD7;
     --color-darkblue: #202d3f;
+
+    --color-border: #304057;
 }
 
 .header-brand {
@@ -194,4 +196,8 @@ td > span.FizzBuzz{
 
 .slideContainer {
     display: flex;
+}
+
+.border-bottom {
+    border-bottom: solid 1px #304057;
 }
