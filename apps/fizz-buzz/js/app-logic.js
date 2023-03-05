@@ -29,6 +29,9 @@ function getValues()
         //Remove hidden class from table and table info
         getElementBy("id", "tableData").classList.remove("invisible", "d-none");
         getElementBy("id", "tableInfo").classList.remove("invisible", "d-none");
+
+        // jump to results
+        window.location.href = "#Results";
     }
     else
     {

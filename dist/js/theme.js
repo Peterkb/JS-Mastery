@@ -5,13 +5,11 @@ function setSiteTheme()
     setTheme.classList.toggle("lights-off")
 
     if (setTheme.classList.contains("lights-off"))
-    {
-        console.log('Dark Mode');    
+    { 
         theme = "DARK"
     }
     else
     {        
-        console.log('Light Mode');
         theme = "LIGHT"
     }
 
@@ -19,19 +17,14 @@ function setSiteTheme()
 
     // save to local storage
     localStorage.setItem("SiteTheme", JSON.stringify(theme))
-
-    console.log(document.getElementById("lights-toggle").value);
 }
 
 function setTheme()
 {
     let toggle = document.getElementById("lights-toggle");
-    console.log(toggle.checked);
 
-    // console.log('this is running');
     let getTheme = JSON.parse(localStorage.getItem("SiteTheme"))
 
-    // console.log(document.getElementById("lights-toggle").value);
 
     if (getTheme === "LIGHT")
     {

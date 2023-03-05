@@ -5,6 +5,10 @@
     --color-darkblue: #202d3f;
 
     --color-border: #304057;
+
+    --color-pb-orange: #F64B07;
+    --color-pb-blue: #4C9BF6;
+    --color-pb-yellow: #F6C207;
 }
 
 .header-brand {
@@ -201,3 +205,5 @@ td > span.FizzBuzz{
 .border-bottom {
     border-bottom: solid 1px #304057;
 }
+
+/* APPS SECTION */
