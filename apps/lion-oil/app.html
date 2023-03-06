@@ -1,16 +1,536 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lion Oil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JS Excercises</title>
+    <link rel="shortcut icon" href="/dist/favicon.ico" type="image/x-icon" />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:400,700|IBM+Plex+Sans:600" rel="stylesheet">
+
+    <link rel="stylesheet" href="/dist/css/style.css">
+    <link rel="stylesheet" href="/dist/css/custom.css">
+    
+    <link rel="stylesheet" href="/dist/css/prism.css">
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <!-- Devicons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+          
 </head>
-<body>
-    <div>
-        <h1>Lion Oil</h1>
-        <p>Palindrom Finder</p>
-        <a href="/apps.html">Apps</a>
+<body class="is-boxed has-animations lights-off">
+    <div class="body-wrap boxed-container">
+        <header class="site-header">
+            <nav class="container">
+                <div class="site-header-inner">
+                    <div class="brand header-brand">
+                        <h1 class="m-0">
+                            <a href="#">
+								<img class="header-logo-image asset-light" src="/dist/images/logo-light.svg" alt="Logo">
+								<img class="header-logo-image asset-dark" src="/dist/images/logo-dark.svg" alt="Logo">
+                            </a>
+                        </h1>                        
+                        <h3 class="Brand-header-text">Lion Oil</h3>
+                    </div>
+                    <ul class="header-links">
+                        <li>
+                            <a href="/apps.html">Apps</a>
+                            <a href="#App">Lion Oil</a>
+                            <a href="#Code">Code</a>
+                            <a href="https://github.com/Peterkb/JS-Mastery/tree/main/apps/fizzBuzz">Github</a>
+                        </li>
+                        <li><a href="https://peter-bredell.com/" target="_blank">Portfolio</a></li>
+                        <li>                            
+                            <div class="lights-toggle">
+                                <input onclick="setSiteTheme()" id="lights-toggle" type="checkbox" name="lights-toggle" class="switch">
+                                <label for="lights-toggle" class="text-xs"><span><span class="label-text"></span></span></label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Landing Page -->
+            <section class="features section">
+                <div class="container">
+                    <div class="features-inner section-inner has-bottom-divider">
+                        <div class="features-header text-center">
+                            <div class="container-sm">
+                                <h2 class="section-title mt-0">Lion Oil</h2>
+                                <p class="section-paragraph">Palindromes are often used in literature, and are even found in numbers and dates. One of the most famous palindromic phrases is &#34;A man, a plan, a canal: Panama&#34;. They are fascinating linguistic curiosities that continue to capture the imaginations of people all over the world.</p>
+                                <div class="cta-cta">
+                                    <a class="button button-primary rounded-1" href="#App">Give it a try!</a>
+                                </div>
+                                <div class="features-image">
+                                    <img class="features-illustration asset-dark" src="/dist/images/features-illustration-dark.svg" alt="Feature illustration">
+                                    <img class="features-illustration asset-light" src="/dist/images/features-illustration-light.svg" alt="Feature illustration">
+                                    
+                                    <img class="features-box asset-dark" src="img/Hero-Dark.svg" alt="Feature box">
+                                    <img class="features-box asset-light" src="img/Hero-Light.svg" alt="Feature box">
+                                            
+                                    <img class="features-illustration asset-dark" src="/dist/images/features-illustration-top-dark.svg" alt="Feature illustration top">
+                                    <img class="features-illustration asset-light" src="/dist/images/features-illustration-top-light.svg" alt="Feature illustration top">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="features-wrap">
+                            <div class="feature is-revealing">
+                                <div class="feature-inner">
+                                    <div class="feature-icon">
+                                        <img class="asset-light" src="/dist/images/feature-01-light.svg" alt="Feature 01">
+                                        <img class="asset-dark" src="/dist/images/feature-01-dark.svg" alt="Feature 01">
+                                    </div>                                    
+                                    <div class="feature-content">
+                                        <h3 class="feature-title mt-0">Languages and Libraries</h3>
+                                        <p class="text-sm mb-0">This page was crafted using the following programming languages and development tools.</p>
+                                        <div class="icon-grid">
+                                            <img class="icon-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg"/>
+                                            <img class="icon-logo" data-tooltip="Html5" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg"  />
+                                            <img class="icon-logo" data-tooltip="CSS3" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg"  />
+                                            <img class="icon-logo" data-tooltip="Bootstrap" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="feature is-revealing">
+                                <div class="feature-inner">
+                                    <div class="feature-icon">
+                                        <img class="asset-light" src="/dist/images/feature-02-light.svg" alt="Feature 02">
+                                        <img class="asset-dark" src="/dist/images/feature-logic-dark.svg" alt="Feature 02">
+                                    </div>
+                                    <div class="feature-content">
+                                        <h3 class="feature-title mt-0">Programming Logic</h3>
+                                        <p class="text-sm mb-0">Loops, Functions, Dom Manipulation, If/Else, Boolean Logic, Ternary operators, Variables, Parameters, User Input.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+							<div class="feature is-revealing">
+                                <div class="feature-inner">
+                                    <div class="feature-icon">
+										<img class="asset-light" src="/dist/images/feature-03-light.svg" alt="Feature 03">
+										<img class="asset-dark" src="/dist/images/feature-03-dark.svg" alt="Feature 03">
+                                    </div>
+									<div class="feature-content">
+                                    	<h3 class="feature-title mt-0">Bonus Features</h3>
+                                    	<p class="text-sm mb-0">Persistant theme toggle using local storage.</p>
+									</div>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Application -->
+
+            <section class="flex-shrink-0" id="App">
+                    <div class="container mt-4 mb-4 mt-lg-5 mb-lg-5">
+                        <div class="row row-cols-1 row-cols-lg-2 gx-4 border-bottom border-1 border-info">
+                            <div class="col border-responsive">
+                                <h1>Lion Oil App</h1>
+                                <p class="border-bottom border-1 border-info pb-3">Lion Oil is an example of a palindrome, which is a word, phrase, or sequence that reads the same backwards and forwards. It's a handy tool for anyone interested in language and wordplay.</p>
+            
+                                <h2>Instructions:</h2>
+                                <p>Simply enter your word or phrase, press submit and the app will let you know whether it reads the same forwards and backwards.</p>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <!-- User Input -->
+                                    <div class="col-12">
+                                        <label onclick="getString()" for="Input1" class="mb-2">Enter a Palindrome.</label>
+                                        <input class="form-control" type="text" id="" placeholder="enter a string" aria-label="string value">    
+                                    </div>
+
+                                    <div class="col-12 mt-4 d-flex justify-content-end justify-content-lg-start mb-sm-3">
+                                        <button type="button" class="btn" id="btnSubmit">
+                                            <a class="link">Submit</a>
+                                        </button>
+                                    </div>
+
+                                    <div class="col-12 mt-4 alert alert-danger invisible fade show d-none" id="alert" role="alert">
+                                        <h4 class="alert-heading">Oops!</h4>
+                                        <hr>
+                                        <p class="mb-0" id="msg">
+                                            Please enter a number.
+                                        </p>
+                                    </div>
+                                    
+                                    <!-- App Output -->
+            
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RESULTS -->
+                        <div class="row" id="Results">
+                            <!-- App Output -->
+                            <div class="col-12 mt-3 mb-3 border-responsive-bottom">
+                                <h2 class="pb-2">Results</h2>
+
+                                <!-- <table class="table table-dark table-striped d-none invisible mt-3" id="tableData"> -->
+                                <table class="table table-dark table-striped d-none invisible mt-3" id="tableData">
+                                    <!--Slider-->
+                                    <div class="d-none" id="tableInfo">
+                                        <h5>Drag the slider from 1 to 10 to change column numbers.</h5>
+                                        <div class="slideContainer">
+                                            <input type="range" min="1" max="10" value="10" class="form-range" id="tableSlider">
+                                        </div>
+                                        <p id="tableInfoDisplay">Rows: 25 | Colums: 4</p>
+                                    </div>
+                                    <!--Generated fizzbuzz table is inserted here-->
+                                </table>
+                            </div>
+                        <div>
+                    </div>
+            </section>
+
+            <!-- Code Behind -->
+            <section class="flex-shrink-0"><div class="container mt-4 mt-lg-5" id="Code">
+                <h2 class="border-bottom border-1 border-info pb-2">The Code for FizzBuzz</h2>
+                
+                <h5 class="mt-3">Global Variables</h5>
+                <div class="mt-2 mb-3">
+                    <pre class="line-numbers">
+                        <code class="language-javascript">
+                            // Stored globally to use when generating fizzBuzz array.
+                            // displayArray() can then be called without having to regenerate array.
+                            var displayArray = [];
+                        </code>
+                    </pre>
+                </div>
+
+                <h5>Logic Functions</h5>
+                
+                <div class="row">
+                    
+                    <!-- Function createArray() -->
+                    <div class="collapsible">
+                        <input class="border border-1 border-info" type="checkbox" id="collapsible-1">
+
+                        <!-- Function getValues -->
+                        <label for="collapsible-1">
+                            <span class="token keyword">function</span>
+                            <span class="token function">getValues</span>
+                            <span class="token punctuation">()</span>
+                            <span class="token punctuation">{
+                                <span class="token keyword">if</span>
+                                    input is number call
+                                <span class="token function">CreateArray()</span>
+                                <span class="token punctuation"> + </span>
+                                <span class="token function">DisplayTable()</span>
+                                <span class="token keyword">else</span>
+                                <span class="token punctuation">throw alert }</span>
+                        </label>
+
+                        <div class="collapsible-text">
+                            <pre class="line-numbers">
+                                <code class="language-javascript">
+/*
+* Description
+* The getValues function is called directly from the page using a 'click' event listener on the submit button.
+*/
+function getValues()
+{
+    // clears alert
+    getElementBy("id", "alert").classList.add("d-none", "invisible");
+    // Resets table information
+    getElementBy("id", "tableData").innerHTML = "";
+
+    //Set fizz and buzz input values to variables and attempt to parse into integers
+    let fizzValue = getElementBy("id", "fizzValue").value;
+    fizzValue = parseInt(fizzValue);
+
+    let buzzValue = getElementBy("id", "buzzValue").value;
+    buzzValue = parseInt(buzzValue);
+
+    //Sets name for Fizz and Buzz that can also be used as class names for CSS styling
+    let fizzText = "Fizz";
+    let buzzText = "Buzz";
+
+    //Check whether parsed values are integers if not display alert to user
+    if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue))
+    {
+        //Create and populate an array with FizzBuzz values which can then be displayed in a adjustable table without having to recreate the array each time
+        displayArray = createArray(fizzValue, buzzValue, fizzText, buzzText);
+
+        //Populate table with array data and remove hidden tags from results table
+        displayTable(fizzText, buzzText);
+
+        //Remove hidden class from table and table info
+        getElementBy("id", "tableData").classList.remove("invisible", "d-none");
+        getElementBy("id", "tableInfo").classList.remove("invisible", "d-none");
+
+        // jump to results
+        window.location.href = "#Results";
+    }
+    else
+    {
+        getElementBy("id", "tableInfo").classList.add("invisible", "d-none");
+        getElementBy("id", "alert").classList.remove("d-none", "invisible");
+    }
+}
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+
+                    <!-- Function createArray() -->
+                    <div class="collapsible">
+                        <input class="border border-2 border-dark" type="checkbox" id="collapsible-2">
+
+                        <label for="collapsible-2">
+                            <span class="token keyword">function</span>
+                            <span class="token function">createArray</span>
+                            <span class="token punctuation">(arguments) {</span>
+                            <span class="token keyword">returns</span>
+                            <span class="token punctuation">an array of fizzbuzz values }</span>
+                        </label>
+
+                        <div class="collapsible-text">
+                            <pre class="line-numbers">
+                                <code class="language-javascript">
+/*
+* Description
+* Create and returns an array of 100 numbers substituting values for Fizz or Buzz where appropriate.
+* 1. The function takes in four parameters:
+*   a. two integers for the "fizz" and "buzz" values
+*   b. two strings for the text to display when those values are present.
+* 2. An empty array is made to store the formatted numbers.
+* 3. The array is populated by looping over 100 numbers and using a ternary operator is substituted where appropriate.
+*   a. If it is divisible by the value of Fizz or Buzz, they are substituted by either Fizz, Buzz or FizzBuzz.
+*   b. If neither is substituted the value of the array is used.
+* 4. The array is returned into a variable to display using a table template generator function.
+*/
+function createArray(fizzValue, buzzValue, fizzText, buzzText)
+{
+    let array = [];
+
+    // Loop through 100 numbers an push into array either number of FizzBuzz value
+    for (let i = 1;i <= 100;i++) {
+
+        // Add Fizz, Buzz, or Both if numbers are divisible
+        // If neither Fizz or Buzz is added set value to number of index
+        let value = ((i % fizzValue == 0 ? fizzText : "") + (i % buzzValue == 0 ? buzzText : "") || i);
+
+        array.push(value);
+    }
+
+    return array;
+}
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+
+                    <!-- Function displayTable() -->
+                    <div class="collapsible">
+                        <input class="border border-2 border-dark" type="checkbox" id="collapsible-3">
+
+                        <label for="collapsible-3">
+                            <span class="token keyword">function</span>
+                            <span class="token function">displayTable</span>
+                            <span class="token punctuation">(arguments) {</span>
+                            <span class="token punctuation">displays the FizzBuzz array inside a table }</span>
+                        </label>
+
+                        <div class="collapsible-text">
+                            <pre class="line-numbers">
+                                <code class="language-javascript">
+/*
+* Description
+* Displays FizzBuzz array in a table of numbers with special formatting.
+* 1. Maps an array of numbers, a string for "fizz", and a string for "buzz".
+* 2. Resets the HTML table to start with an empty string.
+* 3. Sets up variables for the start and end of each row of the table
+* 4. sets number of columns based on a slider element in the HTML.
+* 5. Determines the appropriate table row and color class based on array values.
+* 6. Appends the formatted number to the tableHTML string.
+* 7. Finally, tableHTML is used to update the table element in the HTML document.
+*/
+function displayTable(fizzName, buzzName)
+{
+    //Reset Table
+    let tableHtml = "";
+
+    //Set table row tags
+    let tableRowStart = "";
+    let tableRowEnd = "";
+
+    //used for table row numbers
+    let columns = getElementBy("id", "tableSlider").value;
+    let iCountNum = 1;    
+
+    //Value that will be displayed
+    let fizBuzzValue = ''
+
+    //sets colour class for table entries
+    let colorClass = "";
+
+    
+    displayArray.map((element, index) => {
+
+        //sets the table row numbers
+        if (columns == 1)
+        {
+            tableRowStart = "<tr>";
+            tableRowEnd = "</tr>";
+        }
+        else if (iCountNum == 1)
+        {
+            tableRowStart = "<tr>";
+            tableRowEnd = "";
+            iCountNum++;
+        }
+        else if (iCountNum >= columns)
+        {
+            tableRowStart = "";
+            tableRowEnd = "</tr>";
+            iCountNum = 1;
+        }
+        else
+        {
+            tableRowStart = "";
+            tableRowEnd = "";
+            iCountNum++;
+        }
+
+        //Set CSS class
+        colorClass = element;
+        
+        if (element == fizzName + buzzName) {
+            fizBuzzValue = `<span class="${element}">${element}</span>`;
+            colorClass = "";
+        } else if (element == fizzName){
+            fizBuzzValue = element;
+        } else if (element == buzzName){
+            fizBuzzValue = element;
+        } else {
+            fizBuzzValue = element;
+        }
+
+        tableHtml += `${tableRowStart}<td class="${colorClass}">${fizBuzzValue}</td>${tableRowEnd}`;
+
+    })
+    
+    getElementBy("id", "tableData").innerHTML = tableHtml;
+}
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                
+                    <h5>Helper Functions</h5>
+
+                    <!-- Function getElementBy -->
+                    <div class="collapsible">
+                        <input class="border border-2 border-dark" type="checkbox" id="collapsible-4">
+
+                        <label for="collapsible-4">
+                            <span class="token keyword">function</span>
+                            <span class="token function">getElementBy</span>
+                            <span class="token punctuation">(arguments) {</span>
+                            <span class="token keyword">returns</span>
+                            <span class="token punctuation">a DOM Element depending on type and name }</span>
+                        </label>
+
+                        <div class="collapsible-text">
+                            <pre class="line-numbers">
+                                <code class="language-javascript">
+    /*
+    * Description
+    * A helper function that I use to shorten targeting a DOM element
+    * 1. Takes in the type and name of an element and returns it into a variable
+    * eg: let fizzValue = getElementBy('id', "fizzValue").value;
+    */
+    function getElementBy(type, value)
+    {
+        if(type === "id" || type === "id")
+            return document.getElementById(value);
+        
+        if(type === 'class' || type === 'Class' || type === 'ClassName' || type === 'className')
+            return document.getElementsByClassName(value);
+        
+        if(type === 'tag' || type === 'Tag' || type === 'TagName' || type === 'tagName')
+            return document.getElementsByTagName(value);
+    }
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            
+            <section class="cta section">
+                <div class="container-sm">
+                    <div class="cta-inner section-inner">
+                        <div class="cta-header text-center">
+                            <h2 class="section-title mt-0">Try out the other Apps</h2>
+                            <p class="section-paragraph">Don't fizz out, click below and buzz of to try out the other apps in the collection.</p>
+                            <div class="cta-cta">
+                                <a class="button button-primary rounded-1" href="/apps.html">Lets go!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="site-footer has-top-divider">
+            <div class="container">
+                <div class="site-footer-inner">
+                    <div class="brand footer-brand">
+                        <a href="#">
+							<img class="asset-light" src="/dist/images/logo-pb.png" alt="Logo">
+							<img class="asset-dark" src="/dist/images/logo-pb.png" alt="Logo">
+                        </a>
+                    </div>
+                    <ul class="footer-links list-reset">
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                        <li>
+                            <a href="https://peter-bredell.com/" target="_blank">Portfolio</a>
+                        </li>
+                    </ul>
+                    <ul class="footer-social-links list-reset">
+                        <li>
+                            <a href="https://github.com/Peterkb">
+                                <span class="screen-reader-text">Github</span>
+                                <svg class="svg-footer" width="20" height="20" viewBox="0 0 534 534" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+                                    <path d="M266.667,6.588c-147.255,0 -266.663,119.382 -266.663,266.663c0,117.823 76.407,217.775 182.36,253.039c13.323,2.473 18.215,-5.784 18.215,-12.828c0,-6.358 -0.247,-27.365 -0.362,-49.647c-74.185,16.131 -89.839,-31.462 -89.839,-31.462c-12.131,-30.823 -29.609,-39.019 -29.609,-39.019c-24.198,-16.55 1.824,-16.206 1.824,-16.206c26.773,1.877 40.877,27.48 40.877,27.48c23.784,40.758 62.383,28.977 77.6,22.167c2.393,-17.235 9.304,-29.003 16.93,-35.662c-59.23,-6.734 -121.497,-29.603 -121.497,-131.781c0,-29.113 10.421,-52.901 27.48,-71.58c-2.773,-6.712 -11.901,-33.834 2.578,-70.565c0,-0 22.389,-7.167 73.347,27.334c21.276,-5.913 44.092,-8.885 66.759,-8.986c22.653,0.101 45.482,3.064 66.798,8.977c50.896,-34.501 73.258,-27.334 73.258,-27.334c14.515,36.726 5.387,63.853 2.619,70.565c17.098,18.679 27.444,42.467 27.444,71.58c-0,102.421 -62.382,124.968 -121.762,131.574c9.569,8.275 18.092,24.508 18.092,49.382c-0,35.68 -0.309,64.396 -0.309,73.179c-0,7.096 4.804,15.411 18.316,12.793c105.892,-35.301 182.21,-135.222 182.21,-253c-0.004,-147.272 -119.399,-266.658 -266.666,-266.658l-0,-0.005Z" style="fill:#fbfaf5;"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/pkbredell">
+                                <span class="screen-reader-text">LinkedIn</span>
+                                <svg class="svg-footer" width="20" height="20" viewBox="0 0 534 534" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+                                    <path d="M483.333,12.5l-433.333,0c-20.335,-0.207 -37.25,16.332 -37.5,36.667l0,435.083c0.295,20.303 17.196,36.791 37.5,36.583l433.333,0c20.335,0.162 37.228,-16.375 37.5,-36.708l0,-435.083c-0.362,-20.27 -17.227,-36.704 -37.5,-36.542Zm-320.125,433.333l-75.458,0l-0,-242.791l75.458,-0l0,242.791Zm-37.5,-275.875c-0.014,0 -0.027,0 -0.041,0c-24.001,0 -43.75,-19.749 -43.75,-43.75c-0,-24 19.749,-43.75 43.75,-43.75c24,0 43.75,19.75 43.75,43.75c-0.046,23.969 -19.781,43.667 -43.75,43.667c-0.056,0 -0.111,0 -0.167,0l0.208,0.083Zm320.125,275.875l-75.458,0l-0,-118.125c-0,-28.125 -0.5,-64.333 -39.208,-64.333c-38.709,0 -45.292,30.667 -45.292,62.5l-0,119.958l-75.333,0l-0,-242.791l72.333,-0l-0,33.333l1,0c10.083,-19.083 34.667,-39.208 71.375,-39.208c76.417,-0.167 90.583,50.125 90.583,115.333l0,133.333Z" style="fill:#fbfaf5;fill-rule:nonzero;stroke:#fbfaf5;stroke-width:4.17px;"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="footer-copyright">&copy; 2023 Peter Bredell, all rights reserved</div>
+                </div>
+            </div>
+        </footer>
     </div>
+
+    <!-- Set Theme from LocalStorage -->
+    <script src="/dist/js/theme.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="/dist/js/main.min.js"></script>
+    <script src="js/app-logic.js"></script>
+    <script src="/dist/js/prism.js"></script>
 </body>
 </html>

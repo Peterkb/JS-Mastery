@@ -32,14 +32,14 @@
 								<img class="header-logo-image asset-dark" src="/dist/images/logo-dark.svg" alt="Logo">
                             </a>
                         </h1>                        
-                        <h3 class="Brand-header-text">JavaScript</h3>
+                        <h3 class="Brand-header-text">FizzBuzz</h3>
                     </div>
                     <ul class="header-links">
                         <li>
                             <a href="/apps.html">Apps</a>
                             <a href="#App">FizzBuzz</a>
                             <a href="#Code">Code</a>
-                            <a href="https://github.com/Peterkb/JS-Mastery/tree/main/apps/fizzBuzz">Github</a>
+                            <a href="https://github.com/Peterkb/JS-Mastery/tree/main/apps/fizz-buzz">Github</a>
                         </li>
                         <li><a href="https://peter-bredell.com/" target="_blank">Portfolio</a></li>
                         <li>                            
@@ -204,8 +204,8 @@
                 <div class="mt-2 mb-3">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            // Stored globally on when generating fizzBuzz array.
-                            // displayArray() can be called without having to regenerate array.
+                            // Stored globally to use when generating fizzBuzz array.
+                            // displayArray() can then be called without having to regenerate array.
                             var displayArray = [];
                         </code>
                     </pre>
@@ -542,21 +542,12 @@ function displayTable(fizzName, buzzName)
         
         let slider = document.getElementById("tableSlider");
 
-        // let outputC = document.getElementById("tableDataVal");
-        // let outputR = document.getElementById("tableRowVal");
-
         let tableInfoDisplay = document.getElementById("tableInfoDisplay")
 
         tableInfoDisplay.innerHTML =  `Rows: ${slider.value} | Colums: ${Math.ceil(100/slider.value)}`
-
-        // outputC.innerHTML = slider.value;
-        // outputR.innerHTML = Math.ceil(100/slider.value);
             
         slider.oninput = function changeTableNum(){
-            // outputC.innerHTML = this.value;
-            // outputR.innerHTML = Math.ceil(100/this.value);
             tableInfoDisplay.innerHTML =  `Rows: ${slider.value} | Colums: ${Math.ceil(100/slider.value)}`
-            // getValues();
             displayTable();
         };
     </script>

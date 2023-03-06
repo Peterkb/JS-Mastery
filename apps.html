@@ -44,20 +44,29 @@
             </nav>
         </header>
 
-        <main class="d-flex flex-column">
-            <section class="d-flex flex-grow-1">
-                    <div class="align-self-center container">
+        <main>
+            <section class="hero">
+                    <div class="container">
                         <div class="hero-inner">
                             <div class="app-grid">
                                 <ul>
                                     <li>
-                                        <a onmouseenter="hover('fizz-buzz')" href="apps/fizz-buzz/app.html" class="text-decoration-none"><strong>FizzBuzz</strong>: 1, 2, Fizz, 3, 4, Buzz</a>
+                                        <a
+                                            onmouseenter="select('fizzBuzz')"
+                                            onfocus="select('fizzbuzz')"
+                                            href="apps/fizz-buzz/app.html" class="text-decoration-none"><strong>FizzBuzz</strong>: 1, 2, Fizz, 3, 4, Buzz</a>
                                     </li>
                                     <li>
-                                        <a onmouseenter="hover('lion-oil')" href="apps/lion-oil/app.html" class="text-decoration-none"><strong>Lion Oil</strong>: Palindrome Checker</a>
+                                        <a
+                                            onmouseenter="select('lionOil')"
+                                            onfocus="select('lionOil')"
+                                            href="apps/lion-oil/app.html" class="text-decoration-none"><strong>Lion Oil</strong>: Palindrome Checker</a>
                                     </li>
                                     <li>
-                                        <a onmouseenter="hover('easy-loan')" href="apps/easy-loan/app.html" class="text-decoration-none"><strong>Easy Loan</strong>: Loan Calculator</a>
+                                        <a
+                                            onmouseenter="select('easyLoan')"
+                                            onfocus="select('easyLoan')"
+                                            href="apps/easy-loan/app.html" class="text-decoration-none"><strong>Easy Loan</strong>: Loan Calculator</a>
                                     </li>
                                     <!-- <li>
                                         <a onmouseenter="hover('word-trek')" href="apps/word-trek/app.html">Word Trek: Longest Word</a>
@@ -111,6 +120,20 @@
                     </div>
             </section>
 
+			<section class="cta section">
+                <div class="container-sm">
+                    <div class="cta-inner section-inner">
+                        <div class="cta-header text-center">
+                            <h2 class="section-title mt-0" id="AppTitle">Browse My Coding Challenges</h2>
+                            <p class="section-paragraph" id="AppDescription">Take a look at my coding style, where I strive to showcase my dedication to crafting code that is both easy to understand and elegant in its implementation. I pay close attention to detail and strive to maintain clarity throughout my code, and I'm excited to share these examples with you.</p>
+							<div class="cta-cta">
+								<a class="button button-primary" href="/apps.html" id="AppRef">Click Here!</a>
+							</div>
+					    </div>
+                    </div>
+                </div>
+            </section>
+
             <footer class="site-footer has-top-divider mt-auto">
                 <div class="container">
                     <div class="site-footer-inner">
@@ -156,27 +179,30 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
     <script src="/dist/js/theme.js"></script>
-
     <script src="dist/js/main.min.js"></script>
+    <script src="/dist/js/apps.js"></script>
 
 
-    <script>
+    <!-- <script>
         var heroImgDark = document.getElementById("heroImgDark")
         var heroImgLight = document.getElementById("heroImgLight")
 
+        var AppTitle = document.getElementById("AppTitle")
+        var AppDescription = document.getElementById("AppDescription")
+        var AppButton = document.getElementById("AppRef")
+
         var link = ''
 
-        function hover(src) {
+        function hover(src, title, description) {
             if (document.body.classList.contains("lights-off"))
-            {      
                 heroImgDark.setAttribute('src', `/apps/${src}/img/Hero-Dark.svg`);
-                link = `/apps/${src}/app.html`
-            }
             else
-            {
                 heroImgLight.setAttribute('src', `/apps/${src}/img/Hero-Light.svg`);
-                link = `/apps/${src}/app.html`
-            }
+            
+            link = `/apps/${src}/app.html`
+            AppTitle.innerHTML = title
+            AppDescription.innerHTML = description
+            AppButton.href = link
         }
 
         window.addEventListener('keypress', (e) => {
@@ -184,6 +210,6 @@
                 window.location.href = link
             }
         })        
-    </script>
+    </script> -->
 </body>
 </html>
