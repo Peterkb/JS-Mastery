@@ -1,3 +1,5 @@
+var displayArray = []
+
 //Controller function
 function getValues()
 {
@@ -21,10 +23,10 @@ function getValues()
     if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue))
     {
         //Create and populate an array with FizzBuzz values which can then be displayed in a adjustable table without having to recreate the array each time
-        fizzBuzzArr = createArray(fizzValue, buzzValue, fizzText, buzzText);
+        displayArray = createArray(fizzValue, buzzValue, fizzText, buzzText);
 
         //Populate table with array data and remove hidden tags from results table
-        displayTable(fizzBuzzArr ,fizzText, buzzText);
+        displayTable(fizzText, buzzText);
 
         //Remove hidden class from table and table info
         getElementBy("id", "tableData").classList.remove("invisible", "d-none");
@@ -35,6 +37,7 @@ function getValues()
     }
     else
     {
+        getElementBy("id", "tableInfo").classList.add("invisible", "d-none");
         getElementBy("id", "alert").classList.remove("d-none", "invisible");
     }
 }
@@ -58,9 +61,8 @@ function createArray(fizzValue, buzzValue, fizzText, buzzText)
 }
 
 //Display values
-function displayTable(array, fizzName, buzzName)
+function displayTable(fizzName, buzzName)
 {
-
     //Reset Table
     let tableHtml = "";
 
@@ -79,7 +81,7 @@ function displayTable(array, fizzName, buzzName)
     let colorClass = "";
 
     
-    array.map((element, index) => {
+    displayArray.map((element, index) => {
 
         //sets the table row numbers
         if (columns == 1)

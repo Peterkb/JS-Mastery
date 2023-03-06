@@ -134,7 +134,7 @@
             <section class="flex-shrink-0" id="App">
                     <div class="container mt-4 mb-4 mt-lg-5 mb-lg-5">
                         <div class="row row-cols-1 row-cols-lg-2 gx-4 border-bottom border-1 border-info">
-                            <div class="col border-end border-1 border-info">
+                            <div class="col border-responsive">
                                 <h1>Fizz Buzz App</h1>
                                 <p class="border-bottom border-1 border-info pb-3">When it counts you <strong class="clr3">Fizz Buzz</strong>. A javascript coding exercise using loops. Write a program that prints the numbers from 1 to 100 and displays <strong class="clr1">"Fizz"</strong> for multiples of '3', <strong class="clr2">"Buzz"</strong> for multiples of '5' and <strong class="clr3">"FizzBuzz"</strong> for multiples of both.</p>
             
@@ -145,16 +145,16 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <label for="Input1" class="mb-2">Enter a <strong class="Fizz">Fizz</strong> number</label>
-                                        <input class="form-control" type="text" value="3" id="fizzValue" placeholder="Fizz Value" aria-label="fizz value">
+                                        <input class="form-control" type="text" value="3" id="fizzValue" placeholder="3" aria-label="fizz value">
                                     </div>
 
                                     <!-- User Input -->
                                     <div class="col-6">
                                         <label for="Input2" class="mb-2">Enter a <strong class="Buzz">Buzz</strong> number</label>
-                                        <input class="form-control" type="text" value="5" id="buzzValue" placeholder="Buzz Value" aria-label="buzz value">    
+                                        <input class="form-control" type="text" value="5" id="buzzValue" placeholder="5" aria-label="buzz value">    
                                     </div>
 
-                                    <div class="col-12 mt-4 d-flex justify-content-end justify-content-lg-start">
+                                    <div class="col-12 mt-4 d-flex justify-content-end justify-content-lg-start mb-sm-3">
                                         <button type="button" class="btn" id="btnSubmit">
                                             <a class="link">Submit</a>
                                         </button>
@@ -177,7 +177,7 @@
                         <!-- RESULTS -->
                         <div class="row" id="Results">
                             <!-- App Output -->
-                            <div class="col-12 mt-3">
+                            <div class="col-12 mt-3 mb-3 border-responsive-bottom">
                                 <h2 class="pb-2">Results</h2>
 
                                 <!-- <table class="table table-dark table-striped d-none invisible mt-3" id="tableData"> -->
@@ -200,32 +200,44 @@
             <!-- Code Behind -->
             <section class="flex-shrink-0"><div class="container mt-4 mt-lg-5" id="Code">
                 <h2 class="border-bottom border-1 border-info pb-2">The Code for FizzBuzz</h2>
+                
+                <h5 class="mt-3">Global Variables</h5>
+                <div class="mt-2 mb-3">
+                    <pre class="line-numbers">
+                        <code class="language-javascript">
+                            // Stored globally on when generating fizzBuzz array.
+                            // displayArray() can be called without having to regenerate array.
+                            var displayArray = [];
+                        </code>
+                    </pre>
+                </div>
+
                 <h5>Logic Functions</h5>
+                
                 <div class="row">
                     
-                <!-- Function createArray() -->
-                <div class="collapsible">
-                    <input class="border border-1 border-info" type="checkbox" id="collapsible-1">
+                    <!-- Function createArray() -->
+                    <div class="collapsible">
+                        <input class="border border-1 border-info" type="checkbox" id="collapsible-1">
 
-                    <!-- Function getValues -->
-                    <label for="collapsible-1">
-                        <span class="token keyword">function</span>
-                        <span class="token function">getValues</span>
-                        <span class="token punctuation">()</span>
-                        <span class="token punctuation">{
-                            Gets user input and
-                            <span class="token keyword">if</span>
-                                (integer) calls
-                            <span class="token function">CreateArray()</span>
-                            <span class="token punctuation"> + </span>
-                            <span class="token function">DisplayTable()</span>
-                            <span class="token keyword">else</span>
-                            <span class="token punctuation">throws alert }</span>
-                    </label>
+                        <!-- Function getValues -->
+                        <label for="collapsible-1">
+                            <span class="token keyword">function</span>
+                            <span class="token function">getValues</span>
+                            <span class="token punctuation">()</span>
+                            <span class="token punctuation">{
+                                <span class="token keyword">if</span>
+                                    input is number call
+                                <span class="token function">CreateArray()</span>
+                                <span class="token punctuation"> + </span>
+                                <span class="token function">DisplayTable()</span>
+                                <span class="token keyword">else</span>
+                                <span class="token punctuation">throw alert }</span>
+                        </label>
 
-                    <div class="collapsible-text">
-                        <pre class="line-numbers">
-                            <code class="language-javascript">
+                        <div class="collapsible-text">
+                            <pre class="line-numbers">
+                                <code class="language-javascript">
 /*
 * Description
 * The getValues function is called directly from the page using a 'click' event listener on the submit button.
@@ -233,15 +245,15 @@
 function getValues()
 {
     // clears alert
-    getElementBy('id', "alert").classList.add("d-none", "invisible");
+    getElementBy("id", "alert").classList.add("d-none", "invisible");
     // Resets table information
-    getElementBy('id', "tableData").innerHTML = "";
+    getElementBy("id", "tableData").innerHTML = "";
 
     //Set fizz and buzz input values to variables and attempt to parse into integers
-    let fizzValue = getElementBy('id', "fizzValue").value;
+    let fizzValue = getElementBy("id", "fizzValue").value;
     fizzValue = parseInt(fizzValue);
 
-    let buzzValue = getElementBy('id', "buzzValue").value;
+    let buzzValue = getElementBy("id", "buzzValue").value;
     buzzValue = parseInt(buzzValue);
 
     //Sets name for Fizz and Buzz that can also be used as class names for CSS styling
@@ -252,39 +264,44 @@ function getValues()
     if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue))
     {
         //Create and populate an array with FizzBuzz values which can then be displayed in a adjustable table without having to recreate the array each time
-        fizzBuzzArr = CreateArray(fizzValue, buzzValue, fizzText, buzzText);
+        displayArray = createArray(fizzValue, buzzValue, fizzText, buzzText);
 
         //Populate table with array data and remove hidden tags from results table
-        displayTable(fizzBuzzArr ,fizzText, buzzText);
-        getElementBy('id', "tableData").classList.remove("invisible", "d-none");
-        getElementBy('id', "tableInfo").classList.remove("invisible", "d-none");
-        getElementBy('id', "tableInfo").classList.remove("d-none");
+        displayTable(fizzText, buzzText);
+
+        //Remove hidden class from table and table info
+        getElementBy("id", "tableData").classList.remove("invisible", "d-none");
+        getElementBy("id", "tableInfo").classList.remove("invisible", "d-none");
+
+        // jump to results
+        window.location.href = "#Results";
     }
     else
     {
-        getElementBy('id', "alert").classList.remove("d-none", "invisible");
+        getElementBy("id", "tableInfo").classList.add("invisible", "d-none");
+        getElementBy("id", "alert").classList.remove("d-none", "invisible");
     }
 }
-                            </code>
-                        </pre>
+                                </code>
+                            </pre>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Function createArray() -->
-                <div class="collapsible">
-                    <input class="border border-2 border-dark" type="checkbox" id="collapsible-2">
+                    <!-- Function createArray() -->
+                    <div class="collapsible">
+                        <input class="border border-2 border-dark" type="checkbox" id="collapsible-2">
 
-                    <label for="collapsible-2">
-                        <span class="token keyword">function</span>
-                        <span class="token function">createArray</span>
-                        <span class="token punctuation">(fizzValue, buzzValue, fizzText, buzzText) {</span>
-                        <span class="token keyword">returns</span>
-                        <span class="token punctuation">an array of fizzbuzz values }</span>
-                    </label>
+                        <label for="collapsible-2">
+                            <span class="token keyword">function</span>
+                            <span class="token function">createArray</span>
+                            <span class="token punctuation">(arguments) {</span>
+                            <span class="token keyword">returns</span>
+                            <span class="token punctuation">an array of fizzbuzz values }</span>
+                        </label>
 
-                    <div class="collapsible-text">
-                        <pre class="line-numbers">
-                            <code class="language-javascript">
+                        <div class="collapsible-text">
+                            <pre class="line-numbers">
+                                <code class="language-javascript">
 /*
 * Description
 * Create and returns an array of 100 numbers substituting values for Fizz or Buzz where appropriate.
@@ -313,25 +330,25 @@ function createArray(fizzValue, buzzValue, fizzText, buzzText)
 
     return array;
 }
-                            </code>
-                        </pre>
+                                </code>
+                            </pre>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Function createTable() -->
-                <div class="collapsible">
-                    <input class="border border-2 border-dark" type="checkbox" id="collapsible-3">
+                    <!-- Function displayTable() -->
+                    <div class="collapsible">
+                        <input class="border border-2 border-dark" type="checkbox" id="collapsible-3">
 
-                    <label for="collapsible-3">
-                        <span class="token keyword">function</span>
-                        <span class="token function">displayTable</span>
-                        <span class="token punctuation">(array, fizzName, buzzName) {</span>
-                        <span class="token punctuation">displays FizzBuzz the array inside a table }</span>
-                    </label>
+                        <label for="collapsible-3">
+                            <span class="token keyword">function</span>
+                            <span class="token function">displayTable</span>
+                            <span class="token punctuation">(arguments) {</span>
+                            <span class="token punctuation">displays the FizzBuzz array inside a table }</span>
+                        </label>
 
-                    <div class="collapsible-text">
-                        <pre class="line-numbers">
-                            <code class="language-javascript">
+                        <div class="collapsible-text">
+                            <pre class="line-numbers">
+                                <code class="language-javascript">
 /*
 * Description
 * Displays FizzBuzz array in a table of numbers with special formatting.
@@ -343,7 +360,7 @@ function createArray(fizzValue, buzzValue, fizzText, buzzText)
 * 6. Appends the formatted number to the tableHTML string.
 * 7. Finally, tableHTML is used to update the table element in the HTML document.
 */
-function displayTable(array, fizzName, buzzName)
+function displayTable(fizzName, buzzName)
 {
     //Reset Table
     let tableHtml = "";
@@ -363,7 +380,7 @@ function displayTable(array, fizzName, buzzName)
     let colorClass = "";
 
     
-    array.map((element, index) => {
+    displayArray.map((element, index) => {
 
         //sets the table row numbers
         if (columns == 1)
@@ -404,53 +421,54 @@ function displayTable(array, fizzName, buzzName)
             fizBuzzValue = element;
         }
 
-    tableHtml += `${tableRowStart}<td class="${colorClass}">${fizBuzzValue}</td>${tableRowEnd}`;
+        tableHtml += `${tableRowStart}<td class="${colorClass}">${fizBuzzValue}</td>${tableRowEnd}`;
 
-})
+    })
     
     getElementBy("id", "tableData").innerHTML = tableHtml;
 }
-                            </code>
-                        </pre>
+                                </code>
+                            </pre>
+                        </div>
                     </div>
-                </div>
                 
-                <h5>Helper Functions</h5>
+                    <h5>Helper Functions</h5>
 
-                <!-- Function getElementBy -->
-                <div class="collapsible">
-                    <input class="border border-2 border-dark" type="checkbox" id="collapsible-4">
+                    <!-- Function getElementBy -->
+                    <div class="collapsible">
+                        <input class="border border-2 border-dark" type="checkbox" id="collapsible-4">
 
-                    <label for="collapsible-4">
-                        <span class="token keyword">function</span>
-                        <span class="token function">getElementBy</span>
-                        <span class="token punctuation">(type, value) {</span>
-                        <span class="token keyword">returns</span>
-                        <span class="token punctuation">a DOM Element depending on type }</span>
-                    </label>
+                        <label for="collapsible-4">
+                            <span class="token keyword">function</span>
+                            <span class="token function">getElementBy</span>
+                            <span class="token punctuation">(arguments) {</span>
+                            <span class="token keyword">returns</span>
+                            <span class="token punctuation">a DOM Element depending on type and name }</span>
+                        </label>
 
-                    <div class="collapsible-text">
-                        <pre class="line-numbers">
-                            <code class="language-javascript">
-/*
-* Description
-* A helper function that I use to shorten targeting a DOM element
-* 1. Takes in the type and name of element or Id and returns it into a variable
-* eg: let fizzValue = getElementBy('id', "fizzValue").value;
-*/
-function getElementBy(type, value)
-{
-    if(type === "id" || type === "id")
-        return document.getElementById(value);
-    
-    if(type === 'class' || type === 'Class' || type === 'ClassName' || type === 'className')
-        return document.getElementsByClassName(value);
-    
-    if(type === 'tag' || type === 'Tag' || type === 'TagName' || type === 'tagName')
-        return document.getElementsByTagName(value);
-}
-                            </code>
-                        </pre>
+                        <div class="collapsible-text">
+                            <pre class="line-numbers">
+                                <code class="language-javascript">
+    /*
+    * Description
+    * A helper function that I use to shorten targeting a DOM element
+    * 1. Takes in the type and name of an element and returns it into a variable
+    * eg: let fizzValue = getElementBy('id', "fizzValue").value;
+    */
+    function getElementBy(type, value)
+    {
+        if(type === "id" || type === "id")
+            return document.getElementById(value);
+        
+        if(type === 'class' || type === 'Class' || type === 'ClassName' || type === 'className')
+            return document.getElementsByClassName(value);
+        
+        if(type === 'tag' || type === 'Tag' || type === 'TagName' || type === 'tagName')
+            return document.getElementsByTagName(value);
+    }
+                                </code>
+                            </pre>
+                        </div>
                     </div>
                 </div>
 
@@ -539,10 +557,9 @@ function getElementBy(type, value)
             // outputC.innerHTML = this.value;
             // outputR.innerHTML = Math.ceil(100/this.value);
             tableInfoDisplay.innerHTML =  `Rows: ${slider.value} | Colums: ${Math.ceil(100/slider.value)}`
-            getValues();
+            // getValues();
+            displayTable();
         };
     </script>
 </body>
 </html>
-
-Rows: 25 | Colums: 4

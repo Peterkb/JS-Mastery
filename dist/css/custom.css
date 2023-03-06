@@ -145,9 +145,6 @@ td > span.FizzBuzz{
 /* Code Section */
 .collapsible {
     position: relative;
-    /* max-width: 450px; */
-    /* background-color: #2e6bb5; */
-    /* box-shadow: ; */
     color: var(--color-lightBlue);
     display: block;
     margin-bottom: 10px;
@@ -156,6 +153,16 @@ td > span.FizzBuzz{
     font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
     font-size: 0.5rem;
 }
+
+.collapsible-1,
+.collapsible-2,
+.collapsible-3,
+.collapsible-4,
+.collapsible-5,
+.collapsible-6 {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+}
+
 
 .collapsible label {
     /* border: 1px solid var(--color-lightBlue); */
@@ -207,3 +214,20 @@ td > span.FizzBuzz{
 }
 
 /* APPS SECTION */
+
+.app-grid>ul>li>a:hover {
+    color: var(--color-lightBlue);
+    text-decoration: none;
+    scale: 1.1;
+}
+
+
+
+@media (min-width: 992px ) {
+    .border-responsive-right {
+        border-right: 1px solid var(--color-border);
+    }
+    .border-responsive-bottom {
+        border-bottom: 1px solid var(--color-border);
+    }
+}
