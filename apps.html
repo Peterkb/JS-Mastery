@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="dist/css/style.css">
     <link rel="stylesheet" href="dist/css/custom.css">
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
-
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     
 </head>
 <body class="is-boxed has-animations lights-off">
@@ -43,51 +44,51 @@
             </nav>
         </header>
 
-        <main>
-            <section class="">
-                    <div class="container">
+        <main class="d-flex flex-column">
+            <section class="d-flex flex-grow-1">
+                    <div class="align-self-center container">
                         <div class="hero-inner">
                             <div class="app-grid">
                                 <ul>
                                     <li>
-                                        <a onmouseenter="hover('fizz-buzz')" onmouseout="unHover()" href="apps/fizz-buzz/app.html">FizzBuzz</a>
+                                        <a onmouseenter="hover('fizz-buzz')" href="apps/fizz-buzz/app.html" class="text-decoration-none"><strong>FizzBuzz</strong>: 1, 2, Fizz, 3, 4, Buzz</a>
                                     </li>
                                     <li>
-                                        <a onmouseenter="hover('lion-oil')" onmouseout="unHover()" href="apps/lion-oil/app.html">Lion Oil: Palindrome Checker</a>
+                                        <a onmouseenter="hover('lion-oil')" href="apps/lion-oil/app.html" class="text-decoration-none"><strong>Lion Oil</strong>: Palindrome Checker</a>
                                     </li>
                                     <li>
-                                        <a onmouseenter="hover('easy-loan')" onmouseout="unHover()" href="apps/easy-loan/app.html">Easy Loan: Loan Calculator</a>
+                                        <a onmouseenter="hover('easy-loan')" href="apps/easy-loan/app.html" class="text-decoration-none"><strong>Easy Loan</strong>: Loan Calculator</a>
                                     </li>
-                                    <li>
-                                        <a onmouseenter="hover('word-trek')" onmouseout="unHover()" href="apps/word-trek/app.html">Word Trek: Longest Word</a>
-                                    </li>
-                                    <li>
-                                        <a onmouseenter="hover('fizz-buzz')" onmouseout="unHover()" href="#">Balanced Brackets </a>
-                                    </li>
-                                    <li>
-                                        <a onmouseenter="hover('convertly')" onmouseout="unHover()" href="apps/convertly/app.html">Convertly: Converter</a>
-                                    </li>
-                                    <li>
-                                        <a onmouseenter="hover('calculator')" onmouseout="unHover()" href="apps/calculator/app.html">Calculator</a>
-                                    </li>
-                                    <li>
-                                        <a onmouseenter="hover('fizz-buzz')" onmouseout="unHover()" href="#">Object Sort</a>
-                                    </li>
-                                    <li>
-                                        <a onmouseenter="hover('re-word')" onmouseout="unHover()" href="apps/re-word/app.html">Re-Word: Anagram Check</a>
-                                    </li>
-                                    <li>
-                                        <a onmouseenter="hover('total-array')" onmouseout="unHover()" href="apps/total-array/app.html">Sum Array Values</a>
-                                    </li>
-                                    <li>
-                                        <a onmouseenter="hover('fizz-buzz')" onmouseout="unHover()" href="#">Searching Objects</a>
-                                    </li>
-                                    <li>
-                                        <a onmouseenter="hover('fizz-buzz')" onmouseout="unHover()" href="#">Most Used Word</a>
-                                    </li>
-                                    <li>
-                                        <a onmouseenter="hover('fizz-buzz')" onmouseout="unHover()" href="#">Sum The Values Of An Array With Recursion</a>
-                                    </li>
+                                    <!-- <li>
+                                        <a onmouseenter="hover('word-trek')" href="apps/word-trek/app.html">Word Trek: Longest Word</a>
+                                    </li> -->
+                                    <!-- <li>
+                                        <a onmouseenter="hover('fizz-buzz')" href="#">Balanced Brackets </a>
+                                    </li> -->
+                                    <!-- <li>
+                                        <a onmouseenter="hover('convertly')" href="apps/convertly/app.html">Convertly: Converter</a>
+                                    </li> -->
+                                    <!-- <li>
+                                        <a onmouseenter="hover('calculator')" href="apps/calculator/app.html">Calculator</a>
+                                    </li> -->
+                                    <!-- <li>
+                                        <a onmouseenter="hover('fizz-buzz')" href="#">Object Sort</a>
+                                    </li> -->
+                                    <!-- <li>
+                                        <a onmouseenter="hover('re-word')" href="apps/re-word/app.html">Re-Word: Anagram Check</a>
+                                    </li> -->
+                                    <!-- <li>
+                                        <a onmouseenter="hover('total-array')" href="apps/total-array/app.html">Sum Array Values</a>
+                                    </li> -->
+                                    <!-- <li>
+                                        <a onmouseenter="hover('fizz-buzz')" href="#">Searching Objects</a>
+                                    </li> -->
+                                    <!-- <li>
+                                        <a onmouseenter="hover('fizz-buzz')" href="#">Most Used Word</a>
+                                    </li> -->
+                                    <!-- <li>
+                                        <a onmouseenter="hover('fizz-buzz')" href="#">Sum The Values Of An Array With Recursion</a>
+                                    </li> -->
                                 </ul>
                             </div>
                             <div class="hero-media">
@@ -109,78 +110,80 @@
                         </div>
                     </div>
             </section>
-        <footer class="site-footer has-top-divider">
-            <div class="container">
-                <div class="site-footer-inner">
-                    <div class="brand footer-brand">
-                        <a href="#">
-							<img class="asset-light" src="dist/images/logo-pb.png" alt="Logo">
-							<img class="asset-dark" src="dist/images/logo-pb.png" alt="Logo">
-                        </a>
+
+            <footer class="site-footer has-top-divider mt-auto">
+                <div class="container">
+                    <div class="site-footer-inner">
+                        <div class="brand footer-brand">
+                            <a href="#">
+                                <img class="asset-light" src="dist/images/logo-pb.png" alt="Logo">
+                                <img class="asset-dark" src="dist/images/logo-pb.png" alt="Logo">
+                            </a>
+                        </div>
+                        <ul class="footer-links list-reset">
+                            <li>
+                                <a href="#">Contact</a>
+                            </li>
+                            <li>
+                                <a href="https://peter-bredell.com/" target="_blank">Portfolio</a>
+                            </li>
+                        </ul>
+                        <ul class="footer-social-links list-reset">
+                            <li>
+                                <a href="https://github.com/Peterkb">
+                                    <span class="screen-reader-text">Github</span>
+                                    <svg class="svg-footer" width="20" height="20" viewBox="0 0 534 534" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+                                        <path d="M266.667,6.588c-147.255,0 -266.663,119.382 -266.663,266.663c0,117.823 76.407,217.775 182.36,253.039c13.323,2.473 18.215,-5.784 18.215,-12.828c0,-6.358 -0.247,-27.365 -0.362,-49.647c-74.185,16.131 -89.839,-31.462 -89.839,-31.462c-12.131,-30.823 -29.609,-39.019 -29.609,-39.019c-24.198,-16.55 1.824,-16.206 1.824,-16.206c26.773,1.877 40.877,27.48 40.877,27.48c23.784,40.758 62.383,28.977 77.6,22.167c2.393,-17.235 9.304,-29.003 16.93,-35.662c-59.23,-6.734 -121.497,-29.603 -121.497,-131.781c0,-29.113 10.421,-52.901 27.48,-71.58c-2.773,-6.712 -11.901,-33.834 2.578,-70.565c0,-0 22.389,-7.167 73.347,27.334c21.276,-5.913 44.092,-8.885 66.759,-8.986c22.653,0.101 45.482,3.064 66.798,8.977c50.896,-34.501 73.258,-27.334 73.258,-27.334c14.515,36.726 5.387,63.853 2.619,70.565c17.098,18.679 27.444,42.467 27.444,71.58c-0,102.421 -62.382,124.968 -121.762,131.574c9.569,8.275 18.092,24.508 18.092,49.382c-0,35.68 -0.309,64.396 -0.309,73.179c-0,7.096 4.804,15.411 18.316,12.793c105.892,-35.301 182.21,-135.222 182.21,-253c-0.004,-147.272 -119.399,-266.658 -266.666,-266.658l-0,-0.005Z" style="fill:#fbfaf5;"/>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/pkbredell/">
+                                    <span class="screen-reader-text">LinkedIn</span>
+                                    <svg class="svg-footer" width="20" height="20" viewBox="0 0 534 534" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+                                        <path d="M483.333,12.5l-433.333,0c-20.335,-0.207 -37.25,16.332 -37.5,36.667l0,435.083c0.295,20.303 17.196,36.791 37.5,36.583l433.333,0c20.335,0.162 37.228,-16.375 37.5,-36.708l0,-435.083c-0.362,-20.27 -17.227,-36.704 -37.5,-36.542Zm-320.125,433.333l-75.458,0l-0,-242.791l75.458,-0l0,242.791Zm-37.5,-275.875c-0.014,0 -0.027,0 -0.041,0c-24.001,0 -43.75,-19.749 -43.75,-43.75c-0,-24 19.749,-43.75 43.75,-43.75c24,0 43.75,19.75 43.75,43.75c-0.046,23.969 -19.781,43.667 -43.75,43.667c-0.056,0 -0.111,0 -0.167,0l0.208,0.083Zm320.125,275.875l-75.458,0l-0,-118.125c-0,-28.125 -0.5,-64.333 -39.208,-64.333c-38.709,0 -45.292,30.667 -45.292,62.5l-0,119.958l-75.333,0l-0,-242.791l72.333,-0l-0,33.333l1,0c10.083,-19.083 34.667,-39.208 71.375,-39.208c76.417,-0.167 90.583,50.125 90.583,115.333l0,133.333Z" style="fill:#fbfaf5;fill-rule:nonzero;stroke:#fbfaf5;stroke-width:4.17px;"/>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="footer-copyright">&copy; 2023 Peter Bredell, all rights reserved</div>
                     </div>
-                    <ul class="footer-links list-reset">
-                        <li>
-                            <a href="#">Contact</a>
-                        </li>
-                        <li>
-                            <a href="https://peter-bredell.com/" target="_blank">Portfolio</a>
-                        </li>
-                    </ul>
-                    <ul class="footer-social-links list-reset">
-                        <li>
-                            <a href="https://github.com/Peterkb">
-                                <span class="screen-reader-text">Github</span>
-                                <svg class="svg-footer" width="20" height="20" viewBox="0 0 534 534" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-                                    <path d="M266.667,6.588c-147.255,0 -266.663,119.382 -266.663,266.663c0,117.823 76.407,217.775 182.36,253.039c13.323,2.473 18.215,-5.784 18.215,-12.828c0,-6.358 -0.247,-27.365 -0.362,-49.647c-74.185,16.131 -89.839,-31.462 -89.839,-31.462c-12.131,-30.823 -29.609,-39.019 -29.609,-39.019c-24.198,-16.55 1.824,-16.206 1.824,-16.206c26.773,1.877 40.877,27.48 40.877,27.48c23.784,40.758 62.383,28.977 77.6,22.167c2.393,-17.235 9.304,-29.003 16.93,-35.662c-59.23,-6.734 -121.497,-29.603 -121.497,-131.781c0,-29.113 10.421,-52.901 27.48,-71.58c-2.773,-6.712 -11.901,-33.834 2.578,-70.565c0,-0 22.389,-7.167 73.347,27.334c21.276,-5.913 44.092,-8.885 66.759,-8.986c22.653,0.101 45.482,3.064 66.798,8.977c50.896,-34.501 73.258,-27.334 73.258,-27.334c14.515,36.726 5.387,63.853 2.619,70.565c17.098,18.679 27.444,42.467 27.444,71.58c-0,102.421 -62.382,124.968 -121.762,131.574c9.569,8.275 18.092,24.508 18.092,49.382c-0,35.68 -0.309,64.396 -0.309,73.179c-0,7.096 4.804,15.411 18.316,12.793c105.892,-35.301 182.21,-135.222 182.21,-253c-0.004,-147.272 -119.399,-266.658 -266.666,-266.658l-0,-0.005Z" style="fill:#fbfaf5;"/>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/pkbredell/">
-                                <span class="screen-reader-text">LinkedIn</span>
-                                <svg class="svg-footer" width="20" height="20" viewBox="0 0 534 534" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-                                    <path d="M483.333,12.5l-433.333,0c-20.335,-0.207 -37.25,16.332 -37.5,36.667l0,435.083c0.295,20.303 17.196,36.791 37.5,36.583l433.333,0c20.335,0.162 37.228,-16.375 37.5,-36.708l0,-435.083c-0.362,-20.27 -17.227,-36.704 -37.5,-36.542Zm-320.125,433.333l-75.458,0l-0,-242.791l75.458,-0l0,242.791Zm-37.5,-275.875c-0.014,0 -0.027,0 -0.041,0c-24.001,0 -43.75,-19.749 -43.75,-43.75c-0,-24 19.749,-43.75 43.75,-43.75c24,0 43.75,19.75 43.75,43.75c-0.046,23.969 -19.781,43.667 -43.75,43.667c-0.056,0 -0.111,0 -0.167,0l0.208,0.083Zm320.125,275.875l-75.458,0l-0,-118.125c-0,-28.125 -0.5,-64.333 -39.208,-64.333c-38.709,0 -45.292,30.667 -45.292,62.5l-0,119.958l-75.333,0l-0,-242.791l72.333,-0l-0,33.333l1,0c10.083,-19.083 34.667,-39.208 71.375,-39.208c76.417,-0.167 90.583,50.125 90.583,115.333l0,133.333Z" style="fill:#fbfaf5;fill-rule:nonzero;stroke:#fbfaf5;stroke-width:4.17px;"/>
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="footer-copyright">&copy; 2023 Peter Bredell, all rights reserved</div>
                 </div>
-            </div>
-        </footer>
+            </footer>
     </div>
 
     <!-- Set Theme from LocalStorage -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
     <script src="/dist/js/theme.js"></script>
 
     <script src="dist/js/main.min.js"></script>
+
 
     <script>
         var heroImgDark = document.getElementById("heroImgDark")
         var heroImgLight = document.getElementById("heroImgLight")
 
+        var link = ''
+
         function hover(src) {
             if (document.body.classList.contains("lights-off"))
             {      
                 heroImgDark.setAttribute('src', `/apps/${src}/img/Hero-Dark.svg`);
+                link = `/apps/${src}/app.html`
             }
             else
             {
                 heroImgLight.setAttribute('src', `/apps/${src}/img/Hero-Light.svg`);
+                link = `/apps/${src}/app.html`
             }
         }
 
-        function unHover()
-        {
-            if (document.body.classList.contains("lights-off"))
-            {      
-                heroImgDark.setAttribute('src', "dist/images/hero-media-dark.svg");
+        window.addEventListener('keypress', (e) => {
+            if (e.key === "Enter") {
+                window.location.href = link
             }
-            else
-            {
-                heroImgLight.setAttribute('src', "dist/images/hero-media-light.svg");
-            }
-        }
+        })        
     </script>
 </body>
 </html>
