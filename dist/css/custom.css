@@ -248,3 +248,16 @@ td > span.FizzBuzz,
         border-bottom: 1px solid var(--color-border);
     }
 }
+
+/* Alerts */
+h4.alert-heading {
+    color: var(--color-darkblue) !important;
+}
+
+p>span.true {
+    color: rgb(136, 181, 136) !important;
+}
+
+p>span.false {
+    color: var(--color-orange) !important;
+}

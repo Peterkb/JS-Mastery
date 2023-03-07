@@ -132,60 +132,69 @@
 
             <section class="flex-shrink-0" id="App">
                     <div class="container mt-4 mb-4 mt-lg-5 mb-lg-5">
-                        <div class="row row-cols-1 row-cols-lg-2 gx-4 border-bottom border-1 border-info">
-                            <div class="col border-responsive">
+                        <div class="row row-cols-1 gx-4 border-bottom border-1 border-info">
+                            <div class="col">
                                 <h1>Lion Oil App</h1>
                                 <p class="border-bottom border-1 border-info pb-3">Lion Oil is an example of a palindrome, which is a word, phrase, or sequence that reads the same backwards and forwards. It's a handy tool for anyone interested in language and wordplay.</p>
             
                                 <h2>Instructions:</h2>
-                                <p>Simply enter your word or phrase, press submit and the app will let you know whether it reads the same forwards and backwards.</p>
+                                <p class="border-bottom border-1 border-info pb-3">Simply enter your word or phrase, press submit and the app will let you know whether it reads the same forwards and backwards.</p>
                             </div>
                             <div class="col">
                                 <div class="row">
                                     <!-- User Input -->
-                                    <div class="col-12">
-                                        <label onclick="getString()" for="Input1" class="mb-2">Enter a Palindrome.</label>
-                                        <input class="form-control" type="text" id="" placeholder="enter a string" aria-label="string value">    
+                                    <div class="col" id="Results">
+                                        <label for="Input1" class="mb-2">Enter a Palindrome.</label>
+                                        <input class="form-control" type="text" id="palindrome" placeholder="eg: Lion Oil" aria-label="string value" maxlength="30">
                                     </div>
 
-                                    <div class="col-12 mt-4 d-flex justify-content-end justify-content-lg-start mb-sm-3">
-                                        <button type="button" class="btn" id="btnSubmit">
-                                            <a class="link">Submit</a>
+                                    <div class="col-12 mt-4 d-flex justify-content-end mb-sm-3">
+                                        <button onclick="getString()" type="button" class="btn" id="btnSubmit">
+                                            <a href="#Results" class="link">Submit</a>
                                         </button>
-                                    </div>
-
-                                    <div class="col-12 mt-4 alert alert-danger invisible fade show d-none" id="alert" role="alert">
-                                        <h4 class="alert-heading">Oops!</h4>
-                                        <hr>
-                                        <p class="mb-0" id="msg">
-                                            Please enter a number.
-                                        </p>
-                                    </div>
-                                    
-                                    <!-- App Output -->
-            
+                                    </div>            
                                 </div>
                             </div>
                         </div>
 
                         <!-- RESULTS -->
-                        <div class="row" id="Results">
+                        <div class="row">
                             <!-- App Output -->
                             <div class="col-12 mt-3 mb-3 border-responsive-bottom">
-                                <h2 class="pb-2">Results</h2>
+                                <h2 class="pb-2">Results</h2>                                
 
-                                <!-- <table class="table table-dark table-striped d-none invisible mt-3" id="tableData"> -->
-                                <table class="table table-dark table-striped d-none invisible mt-3" id="tableData">
-                                    <!--Slider-->
-                                    <div class="d-none" id="tableInfo">
-                                        <h5>Drag the slider from 1 to 10 to change column numbers.</h5>
-                                        <div class="slideContainer">
-                                            <input type="range" min="1" max="10" value="10" class="form-range" id="tableSlider">
-                                        </div>
-                                        <p id="tableInfoDisplay">Rows: 25 | Colums: 4</p>
-                                    </div>
-                                    <!--Generated fizzbuzz table is inserted here-->
-                                </table>
+                                <!-- Output Results -->
+                                <div class="col-12 mt-4 alert alert-danger invisible" id="alertBox" role="alert">
+                                    <h4 class="alert-heading" id="alertHead">Title!</h4>
+                                    <hr>
+                                    <p class="mb-3" id="alertText">
+                                        <!--Inserting message here-->
+                                    </p>
+                                
+                                    <table class="table table-dark table-striped d-none" id="table">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">User</th>
+                                            <th scope="col">Comparison</th>
+                                          </tr>                                      
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    Input:
+                                                </td>
+                                                <td>
+                                                    <p class="mb-0" id="comparison1"></p></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Reversed:
+                                                </td>
+                                                <td>
+                                                    <p class="mb-0" id="comparison2"></p></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         <div>
                     </div>
@@ -193,15 +202,16 @@
 
             <!-- Code Behind -->
             <section class="flex-shrink-0"><div class="container mt-4 mt-lg-5" id="Code">
-                <h2 class="border-bottom border-1 border-info pb-2">The Code for FizzBuzz</h2>
+                <h2 class="border-bottom border-1 border-info pb-2">The Code for Lion Oil</h2>
                 
                 <h5 class="mt-3">Global Variables</h5>
                 <div class="mt-2 mb-3">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            // Stored globally to use when generating fizzBuzz array.
-                            // displayArray() can then be called without having to regenerate array.
-                            var displayArray = [];
+// Global variables needed to call functions independently.
+var alertBox =  getElementBy("id", "alertBox");
+var comparisonTable = getElementBy("id", "table");
+var inputBox = getElementBy("id", "palindrome");
                         </code>
                     </pre>
                 </div>

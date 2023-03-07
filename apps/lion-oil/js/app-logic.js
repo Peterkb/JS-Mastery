@@ -1,58 +1,100 @@
+// Global variables
+var alertBox =  getElementBy("id", "alertBox");
+var comparisonTable = getElementBy("id", "table");
+var inputBox = getElementBy("id", "palindrome");
+
 //Get String
 function getString(){
-    getElementBy("id", "alertBox").classList.add("invisible");
-    getElementBy("id", "alertBox").classList.remove("alert-danger");
+    alertBox.classList.add("invisible");
+    comparisonTable.classList.add("d-none");
+    alertBox.classList.remove("alert-danger");
 
-    let paliString = getElementBy("id", "paliString").value;
+    let inputString = inputBox.value;
 
-    //logic
+    //Logic Function
     //create string taking out special characters
-    let returnObj = checkForPali(paliString);
+    let palindromeResult = checkPalindrome(inputString);
 
-    //display
-    displayPali(returnObj);
+    //Display Function
+    displayPali(palindromeResult);
 }
 
-//Logic Functions
-//String without special characters
-function checkForPali(userString){
+//Logic Function
+function checkPalindrome(inputString){
     
-    userString = userString.toLowerCase();
+    inputString = inputString.toLowerCase();
 
     let regex = /[^a-z0-9]/gi;
-    userString = userString.replace(regex,"");
+    inputString = inputString.replace(regex,"");
     
-    let revString = userString.split("").reverse().join("");
+    let reversedString = inputString.split("").reverse().join("");
     
-    let returnObj = {};
+    let palindromeResult = {};
 
-    if (userString == revString && userString != ""){
-        returnObj.alertBox = "alert-success",
-        returnObj.alertHead = "Congratulations",
-        returnObj.alertText = `Your reversed string: "${revString}" is a palindrome.`
+    if (inputString == reversedString && inputString != ""){
+        palindromeResult.alertBox = "alert-success",
+        palindromeResult.alertHead = "Congratulations",
+        palindromeResult.alertText = `Your reversed string: "${reversedString}" is a palindrome.`
+        palindromeResult.comparison = false
         
-    } else if (userString == ""){
-        returnObj.alertBox = "alert-danger",
-        returnObj.alertHead = "Oh no, try again!",
-        returnObj.alertText = "Nothing was entered, please enter some text."
-    } else {
-        returnObj.alertBox = "alert-danger",
-        returnObj.alertHead = "Oh no, try again!",
-        returnObj.alertText = `Your reversed string: "${revString}" is not a palindrome.`
+    }
+    else if (inputString == "")
+    {
+        palindromeResult.alertBox = "alert-danger",
+        palindromeResult.alertHead = "Oh no, try again!",
+        palindromeResult.alertText = "Nothing was entered, please enter some text."
+        palindromeResult.comparison = false
+    }
+    else
+    {
+        palindromeResult.alertBox = "alert-danger",
+        palindromeResult.alertHead = "Oh no, try again!",
+        palindromeResult.alertText = `Your reversed string: "${reversedString}" is not a palindrome.`
+        palindromeResult.comparison = compare(inputString, reversedString)
     }
 
-    returnObj.reversed = revString;
+    palindromeResult.reversed = reversedString;
 
-    return returnObj;
+    return palindromeResult;
+}
+
+function compare(input, reversed)
+{
+    let comparison = ['', '']
+
+    for (let i = 0; i < input.length; i++) {        
+        if (input[i] == reversed[i]) {
+            comparison[0] += `<span class="true">${input[i]}</span>`
+            comparison[1] += `<span class="true">${reversed[i]}</span>`
+        }
+        else
+        {
+            comparison[0] += `<span class="false">${input[i]}</span>`
+            comparison[1] += `<span class="false">${reversed[i]}</span>`
+        }
+    }
+
+    return comparison
 }
 
 //Display results
-function displayPali(returnObj){
-    getElementBy("id", "alertBox").classList.add(returnObj.alertBox);
-    getElementBy("id", "alertHead").innerHTML = returnObj.alertHead;
-    getElementBy("id", "alertText").innerHTML = returnObj.alertText;
+function displayPali(palindromeResult){
+    // Set Alert Type
+    alertBox.classList.add(palindromeResult.alertBox);
+
+    //Set Header and Message
+    getElementBy("id", "alertHead").innerHTML = palindromeResult.alertHead;
+    getElementBy("id", "alertText").innerHTML = palindromeResult.alertText;
+
+    if (palindromeResult.comparison != false)
+    {
+        comparisonTable.classList.remove("d-none")
+        getElementBy("id", "comparison1").innerHTML = palindromeResult.comparison[0];
+        getElementBy("id", "comparison2").innerHTML = palindromeResult.comparison[1];
+    }
     
-    getElementBy("id", "alertBox").classList.remove("invisible");
+    // Display Alert Box
+    alertBox.classList.remove("invisible");
 }
 
 //Shorten Code
@@ -68,9 +110,17 @@ function getElementBy(type, value)
         return document.getElementsByTagName(value);
 }
 
+// Event Listeners
+inputBox.addEventListener('keyup', (e) => {
+    if (e.key === "Enter") {
+        getString()
+        window.location.href = '#Results'
+    }
+})
+
 /*  --ID's--
 -- INPUT --
-paliString     -   Get user input string
+palindrome  -   Get user input string
 btnSubmit   -   User submit button
 -- OUTPUT --
 alertBox    -   Target Alert Box (make visible/invisible)
