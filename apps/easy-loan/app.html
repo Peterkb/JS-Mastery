@@ -1,16 +1,456 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Easy Loan</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:400,700|IBM+Plex+Sans:600" rel="stylesheet">
+
+    <link rel="stylesheet" href="/dist/css/style.css">
+    <link rel="stylesheet" href="/dist/css/custom.css">
+    
+    <link rel="stylesheet" href="/dist/css/prism.css">
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <!-- Devicons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+          
 </head>
-<body>
-    <div>
-        <h1>Easy Loan</h1>
-        <p>Mortage Loan Calculator</p>
-        <a href="/apps.html">Apps</a>
+<body class="is-boxed has-animations lights-off">
+    <div class="body-wrap boxed-container">
+        <header class="site-header">
+            <nav class="container">
+                <div class="site-header-inner">
+                    <div class="brand header-brand">
+                        <h1 class="m-0">
+                            <a href="#">
+								<img class="header-logo-image asset-light" src="/dist/images/logo-light.svg" alt="Logo">
+								<img class="header-logo-image asset-dark" src="/dist/images/logo-dark.svg" alt="Logo">
+                            </a>
+                        </h1>                        
+                        <h3 class="Brand-header-text">Easy Loan</h3>
+                    </div>
+                    <ul class="header-links">
+                        <li>
+                            <a href="/apps.html">Apps</a>
+                            <a href="#Code">Code</a>
+                            <a href="https://github.com/Peterkb/JS-Mastery/tree/main/apps/easy-loan">Github</a>
+                        </li>
+                        <li><a href="https://peter-bredell.com/" target="_blank">Portfolio</a></li>
+                        <li>                            
+                            <div class="lights-toggle">
+                                <input onclick="setSiteTheme()" id="lights-toggle" type="checkbox" name="lights-toggle" class="switch">
+                                <label for="lights-toggle" class="text-xs"><span><span class="label-text"></span></span></label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Landing Page -->
+            <section class="features section">
+                <div class="container">
+                    <div class="features-inner section-inner has-bottom-divider">
+                        <div class="features-header text-center">
+                            <div class="container-sm">
+                                <h2 class="section-title mt-0">Easy Loan</h2>
+                                <p class="section-paragraph">Are you planning to take out a loan but want to know how much you will be paying back in total? Here is a loan calculator app that can help you! Simply enter the amount you want to borrow, the interest rate, and the duration of the loan, and thr app will calculate your monthly payment and the total amount you will pay back over the life of the loan.</p>
+                                <div class="cta-cta">
+                                    <a class="button button-primary rounded-1" href="#App">Give it a try!</a>
+                                </div>
+                                <div class="features-image">
+                                    <img class="features-illustration asset-dark" src="/dist/images/features-illustration-dark.svg" alt="Feature illustration">
+                                    <img class="features-illustration asset-light" src="/dist/images/features-illustration-light.svg" alt="Feature illustration">
+                                    
+                                    <img class="features-box asset-dark" src="img/Hero-Dark.svg" alt="Feature box">
+                                    <img class="features-box asset-light" src="img/Hero-Light.svg" alt="Feature box">
+                                            
+                                    <img class="features-illustration asset-dark" src="/dist/images/features-illustration-top-dark.svg" alt="Feature illustration top">
+                                    <img class="features-illustration asset-light" src="/dist/images/features-illustration-top-light.svg" alt="Feature illustration top">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="features-wrap">
+                            <div class="feature is-revealing">
+                                <div class="feature-inner">
+                                    <div class="feature-icon">
+                                        <img class="asset-light" src="/dist/images/feature-01-light.svg" alt="Feature 01">
+                                        <img class="asset-dark" src="/dist/images/feature-01-dark.svg" alt="Feature 01">
+                                    </div>                                    
+                                    <div class="feature-content">
+                                        <h3 class="feature-title mt-0">Languages and Libraries</h3>
+                                        <p class="text-sm mb-0">This page was crafted using the following programming languages and development tools.</p>
+                                        <div class="icon-grid">
+                                            <img class="icon-logo" title="JavaScript" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg"/>
+                                            <img class="icon-logo" title="Html5" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg"  />
+                                            <img class="icon-logo" title="CSS3" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg"  />
+                                            <img class="icon-logo" title="Bootstrap5" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="feature is-revealing">
+                                <div class="feature-inner">
+                                    <div class="feature-icon">
+                                        <img class="asset-light" src="/dist/images/feature-02-light.svg" alt="Feature 02">
+                                        <img class="asset-dark" src="/dist/images/feature-logic-dark.svg" alt="Feature 02">
+                                    </div>
+                                    <div class="feature-content">
+                                        <h3 class="feature-title mt-0">Programming Logic</h3>
+                                        <p class="text-sm mb-0">Loops, Functions, Dom Manipulation, If/Else, Boolean Logic, Ternary operators, Variables, Parameters, User Input.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+							<div class="feature is-revealing">
+                                <div class="feature-inner">
+                                    <div class="feature-icon">
+										<img class="asset-light" src="/dist/images/feature-03-light.svg" alt="Feature 03">
+										<img class="asset-dark" src="/dist/images/feature-03-dark.svg" alt="Feature 03">
+                                    </div>
+									<div class="feature-content">
+                                    	<h3 class="feature-title mt-0">Features</h3>
+                                    	<p class="text-sm mb-0">User Input, Persistant theme toggle using local storage.</p>
+									</div>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Application -->
+
+            <section class="flex-shrink-0" id="App">
+                <div class="container mt-4 mb-4 mt-lg-5 mb-lg-5">
+                    <div class="row gx-4">
+                        <div class="col">
+                            <h1>Easy Loan: Amortization calculator</h1>
+                            <p class="border-bottom border-1 border-info pb-3">Easy Loan Description.</p>
+        
+                            <h2>Instructions:</h2>
+                            <p class="border-bottom border-1 border-info pb-3">Easy Loan Instructions.</p>
+                        </div>
+                    </div>
+
+                    <div class="row row-cols-1 row-cols-lg-2 mb-3">
+
+                        <!-- Loan Input -->
+                        <div class="col bg-dark-subtle p-2">
+
+                            <!-- Amount -->
+                            <div class="mb-3">
+                                <label for="Input1">Loan Amount</label>
+                                <input type="number" class="form-control" id="inputAmount" placeholder="amount" value="15000">
+                            </div>
+
+                            <!-- Payments -->
+                            <div class="mb-3">
+                                <label for="Input2">Payments</label>
+                                <input type="number" class="form-control" id="inputPayments" placeholder="months" value="60">
+                            </div>
+
+                            <!-- Intrest Rate -->
+                            <div class="mb-3">
+                                <label for="Input3">Intrest Rate</label>
+                                <input type="number" class="form-control" id="inputRate" placeholder="%" value="3">
+                            </div>
+
+                            <!-- Submit -->
+                            <div class="mb-3 d-flex justify-content-end">
+                                <button type="button" class="btn btn-outline-info" id="btnCalc">Calculate</button>
+                            </div>
+                        </div>
+
+                        <!-- Loan Information -->
+                        <div class="col p-2 d-flex flex-column align-self-center">
+                            <h5 class="text-center">Your Monthly Payments</h5>
+                            <h1 class="text-center" id="outPmt">$0.00</h1>
+                            
+                            <p class="text-center">
+                                Total Principal: <span id="outLoan">$0.00</span>
+                            </p>
+                            
+                            <p class="text-center">
+                                Total Intrest: <span id="outIntrest">$0.00</span>
+                            </p>
+                            
+                            <p class="text-center">
+                                Total Cost: <span id="outTotal">$0.00</span>
+                            </p>
+                            
+                        </div>
+                    </div>
+
+                    <!-- RESULTS -->
+                    <div class="row table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead class="table-dark">
+                                <th>Month</th>
+                                <th>Payment</th>
+                                <th>Principal</th>
+                                <th>Intrest</th>
+                                <th>Total Intrest</th>
+                                <th>Balance</th>
+                            </thead>
+                            <tbody id="tableBody">
+                                <!--Insert Table here-->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Table Template -->
+                    <template id="tableTemplate">
+                        <tr class="">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </template>
+
+                </div>
+            </section>
+
+            <!-- Code Behind -->
+            <section class="flex-shrink-0"><div class="container mt-4 mt-lg-5" id="Code">
+                <h2 class="border-bottom border-1 border-info pb-2">The Code for Easy Loan</h2>
+                
+                <h5 class="mt-3">Global Variables</h5>
+                <div class="mt-2 mb-3">
+                    <pre class="line-numbers">
+                        <code class="language-javascript">
+// Global variables.
+                        </code>
+                    </pre>
+                </div>
+
+                <h5>Logic Functions</h5>
+                
+                <div class="row">
+                    
+                    <!-- Function getString() -->
+                    <div class="collapsible">
+                        <input class="border border-1 border-info" type="checkbox" id="collapsible-1">
+
+                        <!-- Function getValues -->
+                        <label for="collapsible-1">
+                            <span class="token keyword">function</span>
+                            <span class="token function">getString</span>
+                            <span class="token punctuation">() {</span>
+                            <span class="token function">takes</span>
+                            <span class="token punctuation">user input,</span>
+                            <span class="token function">checks</span>
+                            <span class="token punctuation">for Palindrome and </span>
+                            <span class="token function">displays</span>
+                            <span class="token punctuation"> result }</span>
+                        </label>
+
+                        <div class="collapsible-text">
+                            <pre class="line-numbers">
+                                <code class="language-javascript">
+/*
+* Description
+*/
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+
+                    <!-- Function checkPalindrome() -->
+                    <div class="collapsible">
+                        <input class="border border-2 border-dark" type="checkbox" id="collapsible-2">
+
+                        <label for="collapsible-2">
+                            <span class="token keyword">function</span>
+                            <span class="token function">checkPalindrome</span>
+                            <span class="token punctuation">(arg) {</span>
+                            <span class="token keyword">removes</span>
+                            <span class="token punctuation">specials characters, reverses it and verifies if it's equal to the original</span>
+                            <span class="token punctuation">}</span>
+                        </label>
+
+                        <div class="collapsible-text">
+                            <pre class="line-numbers">
+                                <code class="language-javascript">
+/*
+* Description
+*/
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+
+                    <!-- Function compareStrings() -->
+                    <div class="collapsible">
+                        <input class="border border-2 border-dark" type="checkbox" id="collapsible-3">
+
+                        <label for="collapsible-3">
+                            <span class="token keyword">function</span>
+                            <span class="token function">compareStrings</span>
+                            <span class="token punctuation">(args) {</span>
+                            <span class="token punctuation">compares non equal strings }</span>
+                        </label>
+
+                        <div class="collapsible-text">
+                            <pre class="line-numbers">
+                                <code class="language-javascript">
+/*
+* Description
+*/
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+
+                    <!-- Function displayResult() -->
+                    <div class="collapsible">
+                        <input class="border border-2 border-dark" type="checkbox" id="collapsible-3">
+
+                        <label for="collapsible-3">
+                            <span class="token keyword">function</span>
+                            <span class="token function">displayResult</span>
+                            <span class="token punctuation">(arg) {</span>
+                            <span class="token punctuation">displays the result by using an alert box with optional comparison table. }</span>
+                        </label>
+
+                        <div class="collapsible-text">
+                            <pre class="line-numbers">
+                                <code class="language-javascript">
+/*
+* Description
+*/
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                
+                    <h5>Helper Functions</h5>
+
+                    <!-- Function getElementBy -->
+                    <div class="collapsible">
+                        <input class="border border-2 border-dark" type="checkbox" id="collapsible-4">
+
+                        <label for="collapsible-4">
+                            <span class="token keyword">function</span>
+                            <span class="token function">getElementBy</span>
+                            <span class="token punctuation">(arguments) {</span>
+                            <span class="token keyword">returns</span>
+                            <span class="token punctuation">a DOM Element depending on type and name }</span>
+                        </label>
+
+                        <div class="collapsible-text">
+                            <pre class="line-numbers">
+                                <code class="language-javascript">
+/*
+* Description
+* A helper function that I use to shorten targeting a DOM element
+* 1. Takes in the type and name of an element and returns it into a variable
+* eg: let fizzValue = getElementBy('id', "fizzValue").value;
+*/
+function getElementBy(type, value)
+{
+    if(type === "id" || type === "id")
+        return document.getElementById(value);
+    
+    if(type === 'class' || type === 'Class' || type === 'ClassName' || type === 'className')
+        return document.getElementsByClassName(value);
+    
+    if(type === 'tag' || type === 'Tag' || type === 'TagName' || type === 'tagName')
+        return document.getElementsByTagName(value);
+}
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                
+                    <h5>Event Listeners</h5>
+
+                    <!-- Function addEventListener, keyup -->
+                    <div class="mt-2 mb-3">
+                        <pre class="line-numbers">
+                            <code class="language-javascript">
+// Event Listener
+                            </code>
+                        </pre>
+                    </div>
+                    
+
+            </section>
+            
+            <section class="cta section">
+                <div class="container-sm">
+                    <div class="cta-inner section-inner">
+                        <div class="cta-header text-center">
+                            <h2 class="section-title mt-0">Try out the other Apps</h2>
+                            <p class="section-paragraph">Reverse on back, click below and return to try out the other apps in the collection.</p>
+                            <div class="cta-cta">
+                                <a class="button button-primary rounded-1" href="/apps.html">Lets go!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="site-footer has-top-divider">
+            <div class="container">
+                <div class="site-footer-inner">
+                    <div class="brand footer-brand">
+                        <a href="#">
+							<img class="asset-light" src="/dist/images/logo-pb.png" alt="Logo">
+							<img class="asset-dark" src="/dist/images/logo-pb.png" alt="Logo">
+                        </a>
+                    </div>
+                    <ul class="footer-links list-reset">
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                        <li>
+                            <a href="https://peter-bredell.com/" target="_blank">Portfolio</a>
+                        </li>
+                    </ul>
+                    <ul class="footer-social-links list-reset">
+                        <li>
+                            <a href="https://github.com/Peterkb">
+                                <span class="screen-reader-text">Github</span>
+                                <svg class="svg-footer" width="20" height="20" viewBox="0 0 534 534" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+                                    <path d="M266.667,6.588c-147.255,0 -266.663,119.382 -266.663,266.663c0,117.823 76.407,217.775 182.36,253.039c13.323,2.473 18.215,-5.784 18.215,-12.828c0,-6.358 -0.247,-27.365 -0.362,-49.647c-74.185,16.131 -89.839,-31.462 -89.839,-31.462c-12.131,-30.823 -29.609,-39.019 -29.609,-39.019c-24.198,-16.55 1.824,-16.206 1.824,-16.206c26.773,1.877 40.877,27.48 40.877,27.48c23.784,40.758 62.383,28.977 77.6,22.167c2.393,-17.235 9.304,-29.003 16.93,-35.662c-59.23,-6.734 -121.497,-29.603 -121.497,-131.781c0,-29.113 10.421,-52.901 27.48,-71.58c-2.773,-6.712 -11.901,-33.834 2.578,-70.565c0,-0 22.389,-7.167 73.347,27.334c21.276,-5.913 44.092,-8.885 66.759,-8.986c22.653,0.101 45.482,3.064 66.798,8.977c50.896,-34.501 73.258,-27.334 73.258,-27.334c14.515,36.726 5.387,63.853 2.619,70.565c17.098,18.679 27.444,42.467 27.444,71.58c-0,102.421 -62.382,124.968 -121.762,131.574c9.569,8.275 18.092,24.508 18.092,49.382c-0,35.68 -0.309,64.396 -0.309,73.179c-0,7.096 4.804,15.411 18.316,12.793c105.892,-35.301 182.21,-135.222 182.21,-253c-0.004,-147.272 -119.399,-266.658 -266.666,-266.658l-0,-0.005Z" style="fill:#fbfaf5;"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/pkbredell">
+                                <span class="screen-reader-text">LinkedIn</span>
+                                <svg class="svg-footer" width="20" height="20" viewBox="0 0 534 534" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+                                    <path d="M483.333,12.5l-433.333,0c-20.335,-0.207 -37.25,16.332 -37.5,36.667l0,435.083c0.295,20.303 17.196,36.791 37.5,36.583l433.333,0c20.335,0.162 37.228,-16.375 37.5,-36.708l0,-435.083c-0.362,-20.27 -17.227,-36.704 -37.5,-36.542Zm-320.125,433.333l-75.458,0l-0,-242.791l75.458,-0l0,242.791Zm-37.5,-275.875c-0.014,0 -0.027,0 -0.041,0c-24.001,0 -43.75,-19.749 -43.75,-43.75c-0,-24 19.749,-43.75 43.75,-43.75c24,0 43.75,19.75 43.75,43.75c-0.046,23.969 -19.781,43.667 -43.75,43.667c-0.056,0 -0.111,0 -0.167,0l0.208,0.083Zm320.125,275.875l-75.458,0l-0,-118.125c-0,-28.125 -0.5,-64.333 -39.208,-64.333c-38.709,0 -45.292,30.667 -45.292,62.5l-0,119.958l-75.333,0l-0,-242.791l72.333,-0l-0,33.333l1,0c10.083,-19.083 34.667,-39.208 71.375,-39.208c76.417,-0.167 90.583,50.125 90.583,115.333l0,133.333Z" style="fill:#fbfaf5;fill-rule:nonzero;stroke:#fbfaf5;stroke-width:4.17px;"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="footer-copyright">&copy; 2023 Peter Bredell, all rights reserved</div>
+                </div>
+            </div>
+        </footer>
     </div>
+
+    <!-- Set Theme from LocalStorage -->
+    <script src="/dist/js/theme.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="/dist/js/main.min.js"></script>
+    <script src="js/app-logic.js"></script>
+    <script src="/dist/js/prism.js"></script>
 </body>
 </html>

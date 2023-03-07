@@ -4,11 +4,14 @@ var comparisonTable = getElementBy("id", "table");
 var inputBox = getElementBy("id", "palindrome");
 
 //Get String
-function getString(){
-    alertBox.classList.add("invisible");
+function getString()
+{
+    // Hide result table and reset alert
+    alertBox.classList.add("invisible", "d-none");
     comparisonTable.classList.add("d-none");
     alertBox.classList.remove("alert-danger");
 
+    // Get user input
     let inputString = inputBox.value;
 
     //Logic Function
@@ -16,19 +19,22 @@ function getString(){
     let palindromeResult = checkPalindrome(inputString);
 
     //Display Function
-    displayPali(palindromeResult);
+    displayResult(palindromeResult);
 }
 
 //Logic Function
-function checkPalindrome(inputString){
-    
+function checkPalindrome(inputString)
+{
+    // Set letters to lower case and remove special characters and spaces
     inputString = inputString.toLowerCase();
 
     let regex = /[^a-z0-9]/gi;
     inputString = inputString.replace(regex,"");
     
+    // Reverse string
     let reversedString = inputString.split("").reverse().join("");
     
+    // Create and set object properties dependent on results.
     let palindromeResult = {};
 
     if (inputString == reversedString && inputString != ""){
@@ -50,7 +56,8 @@ function checkPalindrome(inputString){
         palindromeResult.alertBox = "alert-danger",
         palindromeResult.alertHead = "Oh no, try again!",
         palindromeResult.alertText = `Your reversed string: "${reversedString}" is not a palindrome.`
-        palindromeResult.comparison = compare(inputString, reversedString)
+        // Create comparison table
+        palindromeResult.comparison = compareStrings(inputString, reversedString)
     }
 
     palindromeResult.reversed = reversedString;
@@ -58,7 +65,7 @@ function checkPalindrome(inputString){
     return palindromeResult;
 }
 
-function compare(input, reversed)
+function compareStrings(input, reversed)
 {
     let comparison = ['', '']
 
@@ -78,7 +85,7 @@ function compare(input, reversed)
 }
 
 //Display results
-function displayPali(palindromeResult){
+function displayResult(palindromeResult){
     // Set Alert Type
     alertBox.classList.add(palindromeResult.alertBox);
 
@@ -94,7 +101,7 @@ function displayPali(palindromeResult){
     }
     
     // Display Alert Box
-    alertBox.classList.remove("invisible");
+    alertBox.classList.remove("invisible", "d-none");
 }
 
 //Shorten Code

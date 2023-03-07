@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JS Excercises</title>
-    <link rel="shortcut icon" href="/dist/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 
     <link href="https://fonts.googleapis.com/css?family=Heebo:400,700|IBM+Plex+Sans:600" rel="stylesheet">
 
@@ -37,9 +37,8 @@
                     <ul class="header-links">
                         <li>
                             <a href="/apps.html">Apps</a>
-                            <a href="#App">Lion Oil</a>
                             <a href="#Code">Code</a>
-                            <a href="https://github.com/Peterkb/JS-Mastery/tree/main/apps/fizzBuzz">Github</a>
+                            <a href="https://github.com/Peterkb/JS-Mastery/tree/main/apps/lion-oil">Github</a>
                         </li>
                         <li><a href="https://peter-bredell.com/" target="_blank">Portfolio</a></li>
                         <li>                            
@@ -89,10 +88,10 @@
                                         <h3 class="feature-title mt-0">Languages and Libraries</h3>
                                         <p class="text-sm mb-0">This page was crafted using the following programming languages and development tools.</p>
                                         <div class="icon-grid">
-                                            <img class="icon-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg"/>
-                                            <img class="icon-logo" data-tooltip="Html5" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg"  />
-                                            <img class="icon-logo" data-tooltip="CSS3" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg"  />
-                                            <img class="icon-logo" data-tooltip="Bootstrap" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" />
+                                            <img class="icon-logo" title="JavaScript" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg"/>
+                                            <img class="icon-logo" title="Html5" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg"  />
+                                            <img class="icon-logo" title="CSS3" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg"  />
+                                            <img class="icon-logo" title="Bootstrap5" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" />
                                         </div>
                                     </div>
                                 </div>
@@ -118,8 +117,8 @@
 										<img class="asset-dark" src="/dist/images/feature-03-dark.svg" alt="Feature 03">
                                     </div>
 									<div class="feature-content">
-                                    	<h3 class="feature-title mt-0">Bonus Features</h3>
-                                    	<p class="text-sm mb-0">Persistant theme toggle using local storage.</p>
+                                    	<h3 class="feature-title mt-0">Features</h3>
+                                    	<p class="text-sm mb-0">User Input, Persistant theme toggle using local storage.</p>
 									</div>
 								</div>
                             </div>
@@ -131,73 +130,73 @@
             <!-- Application -->
 
             <section class="flex-shrink-0" id="App">
-                    <div class="container mt-4 mb-4 mt-lg-5 mb-lg-5">
-                        <div class="row row-cols-1 gx-4 border-bottom border-1 border-info">
-                            <div class="col">
-                                <h1>Lion Oil App</h1>
-                                <p class="border-bottom border-1 border-info pb-3">Lion Oil is an example of a palindrome, which is a word, phrase, or sequence that reads the same backwards and forwards. It's a handy tool for anyone interested in language and wordplay.</p>
-            
-                                <h2>Instructions:</h2>
-                                <p class="border-bottom border-1 border-info pb-3">Simply enter your word or phrase, press submit and the app will let you know whether it reads the same forwards and backwards.</p>
-                            </div>
-                            <div class="col">
-                                <div class="row">
-                                    <!-- User Input -->
-                                    <div class="col" id="Results">
-                                        <label for="Input1" class="mb-2">Enter a Palindrome.</label>
-                                        <input class="form-control" type="text" id="palindrome" placeholder="eg: Lion Oil" aria-label="string value" maxlength="30">
-                                    </div>
-
-                                    <div class="col-12 mt-4 d-flex justify-content-end mb-sm-3">
-                                        <button onclick="getString()" type="button" class="btn" id="btnSubmit">
-                                            <a href="#Results" class="link">Submit</a>
-                                        </button>
-                                    </div>            
+                <div class="container mt-4 mb-4 mt-lg-5 mb-lg-5">
+                    <div class="row row-cols-1 gx-4 border-bottom border-1 border-info">
+                        <div class="col">
+                            <h1>Lion Oil: Palindrome App</h1>
+                            <p class="border-bottom border-1 border-info pb-3">Lion Oil is an example of a palindrome, which is a word, phrase, or sequence that reads the same backwards and forwards. It's a handy tool for anyone interested in language and wordplay.</p>
+        
+                            <h2>Instructions:</h2>
+                            <p class="border-bottom border-1 border-info pb-3">Simply enter your word or phrase, press submit and the app will let you know whether it reads the same forwards and backwards.</p>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <!-- User Input -->
+                                <div class="col" id="Results">
+                                    <label for="Input1" class="mb-2">Enter a Palindrome.</label>
+                                    <input class="form-control" type="text" id="palindrome" placeholder="eg: Lion Oil" aria-label="string value" maxlength="30">
                                 </div>
+
+                                <div class="col-12 mt-4 d-flex justify-content-end mb-sm-3">
+                                    <button onclick="getString()" type="button" class="btn" id="btnSubmit">
+                                        <a href="#Results" class="link">Submit</a>
+                                    </button>
+                                </div>            
                             </div>
                         </div>
-
-                        <!-- RESULTS -->
-                        <div class="row">
-                            <!-- App Output -->
-                            <div class="col-12 mt-3 mb-3 border-responsive-bottom">
-                                <h2 class="pb-2">Results</h2>                                
-
-                                <!-- Output Results -->
-                                <div class="col-12 mt-4 alert alert-danger invisible" id="alertBox" role="alert">
-                                    <h4 class="alert-heading" id="alertHead">Title!</h4>
-                                    <hr>
-                                    <p class="mb-3" id="alertText">
-                                        <!--Inserting message here-->
-                                    </p>
-                                
-                                    <table class="table table-dark table-striped d-none" id="table">
-                                        <thead>
-                                          <tr>
-                                            <th scope="col">User</th>
-                                            <th scope="col">Comparison</th>
-                                          </tr>                                      
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    Input:
-                                                </td>
-                                                <td>
-                                                    <p class="mb-0" id="comparison1"></p></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Reversed:
-                                                </td>
-                                                <td>
-                                                    <p class="mb-0" id="comparison2"></p></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        <div>
                     </div>
+
+                    <!-- RESULTS -->
+                    <div class="row">
+                        <!-- App Output -->
+                        <div class="col-12 mt-3 mb-3 border-responsive-bottom">
+                            <h2 class="pb-2">Results</h2>
+
+                            <!-- Output Results -->
+                            <div class="col-12 mt-4 alert alert-danger invisible d-none" id="alertBox" role="alert">
+                                <h4 class="alert-heading" id="alertHead">Title!</h4>
+                                <hr>
+                                <p class="mb-3" id="alertText">
+                                    <!--Inserting message here-->
+                                </p>
+                            
+                                <table class="table table-dark table-striped d-none" id="table">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">User</th>
+                                        <th scope="col">Comparison</th>
+                                        </tr>                                      
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Input:
+                                            </td>
+                                            <td>
+                                                <p class="mb-0" id="comparison1"></p></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Reversed:
+                                            </td>
+                                            <td>
+                                                <p class="mb-0" id="comparison2"></p></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    <div>
+                </div>
             </section>
 
             <!-- Code Behind -->
@@ -208,7 +207,7 @@
                 <div class="mt-2 mb-3">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-// Global variables needed to call functions independently.
+// Global variables can be called by functions independently.
 var alertBox =  getElementBy("id", "alertBox");
 var comparisonTable = getElementBy("id", "table");
 var inputBox = getElementBy("id", "palindrome");
@@ -220,23 +219,21 @@ var inputBox = getElementBy("id", "palindrome");
                 
                 <div class="row">
                     
-                    <!-- Function createArray() -->
+                    <!-- Function getString() -->
                     <div class="collapsible">
                         <input class="border border-1 border-info" type="checkbox" id="collapsible-1">
 
                         <!-- Function getValues -->
                         <label for="collapsible-1">
                             <span class="token keyword">function</span>
-                            <span class="token function">getValues</span>
-                            <span class="token punctuation">()</span>
-                            <span class="token punctuation">{
-                                <span class="token keyword">if</span>
-                                    input is number call
-                                <span class="token function">CreateArray()</span>
-                                <span class="token punctuation"> + </span>
-                                <span class="token function">DisplayTable()</span>
-                                <span class="token keyword">else</span>
-                                <span class="token punctuation">throw alert }</span>
+                            <span class="token function">getString</span>
+                            <span class="token punctuation">() {</span>
+                            <span class="token function">takes</span>
+                            <span class="token punctuation">user input,</span>
+                            <span class="token function">checks</span>
+                            <span class="token punctuation">for Palindrome and </span>
+                            <span class="token function">displays</span>
+                            <span class="token punctuation"> result }</span>
                         </label>
 
                         <div class="collapsible-text">
@@ -244,63 +241,43 @@ var inputBox = getElementBy("id", "palindrome");
                                 <code class="language-javascript">
 /*
 * Description
-* The getValues function is called directly from the page using a 'click' event listener on the submit button.
+* 1. Gets the user input string.
+* 2. Checks if it is a palindrome using the checkPalindrome() function.
+* 3. Displays the result using the displayResult() function.
 */
-function getValues()
+function getString()
 {
-    // clears alert
-    getElementBy("id", "alert").classList.add("d-none", "invisible");
-    // Resets table information
-    getElementBy("id", "tableData").innerHTML = "";
+    // Hide result table and reset alert
+    alertBox.classList.add("invisible");
+    comparisonTable.classList.add("d-none");
+    alertBox.classList.remove("alert-danger");
 
-    //Set fizz and buzz input values to variables and attempt to parse into integers
-    let fizzValue = getElementBy("id", "fizzValue").value;
-    fizzValue = parseInt(fizzValue);
+    // Get user input
+    let inputString = inputBox.value;
 
-    let buzzValue = getElementBy("id", "buzzValue").value;
-    buzzValue = parseInt(buzzValue);
+    //Logic Function
+    //create string taking out special characters
+    let palindromeResult = checkPalindrome(inputString);
 
-    //Sets name for Fizz and Buzz that can also be used as class names for CSS styling
-    let fizzText = "Fizz";
-    let buzzText = "Buzz";
-
-    //Check whether parsed values are integers if not display alert to user
-    if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue))
-    {
-        //Create and populate an array with FizzBuzz values which can then be displayed in a adjustable table without having to recreate the array each time
-        displayArray = createArray(fizzValue, buzzValue, fizzText, buzzText);
-
-        //Populate table with array data and remove hidden tags from results table
-        displayTable(fizzText, buzzText);
-
-        //Remove hidden class from table and table info
-        getElementBy("id", "tableData").classList.remove("invisible", "d-none");
-        getElementBy("id", "tableInfo").classList.remove("invisible", "d-none");
-
-        // jump to results
-        window.location.href = "#Results";
-    }
-    else
-    {
-        getElementBy("id", "tableInfo").classList.add("invisible", "d-none");
-        getElementBy("id", "alert").classList.remove("d-none", "invisible");
-    }
+    //Display Function
+    displayResult(palindromeResult);
 }
                                 </code>
                             </pre>
                         </div>
                     </div>
 
-                    <!-- Function createArray() -->
+                    <!-- Function checkPalindrome() -->
                     <div class="collapsible">
                         <input class="border border-2 border-dark" type="checkbox" id="collapsible-2">
 
                         <label for="collapsible-2">
                             <span class="token keyword">function</span>
-                            <span class="token function">createArray</span>
-                            <span class="token punctuation">(arguments) {</span>
-                            <span class="token keyword">returns</span>
-                            <span class="token punctuation">an array of fizzbuzz values }</span>
+                            <span class="token function">checkPalindrome</span>
+                            <span class="token punctuation">(arg) {</span>
+                            <span class="token keyword">removes</span>
+                            <span class="token punctuation">specials characters, reverses it and verifies if it's equal to the original</span>
+                            <span class="token punctuation">}</span>
                         </label>
 
                         <div class="collapsible-text">
@@ -309,45 +286,66 @@ function getValues()
 /*
 * Description
 * Create and returns an array of 100 numbers substituting values for Fizz or Buzz where appropriate.
-* 1. The function takes in four parameters:
-*   a. two integers for the "fizz" and "buzz" values
-*   b. two strings for the text to display when those values are present.
-* 2. An empty array is made to store the formatted numbers.
-* 3. The array is populated by looping over 100 numbers and using a ternary operator is substituted where appropriate.
-*   a. If it is divisible by the value of Fizz or Buzz, they are substituted by either Fizz, Buzz or FizzBuzz.
-*   b. If neither is substituted the value of the array is used.
-* 4. The array is returned into a variable to display using a table template generator function.
+* 1. Takes an input string and removes special characters and spaces.
+* 2. Reverses the string, and checks if it is the same as the original.
+* 3. Returns an object containing the result and an alert box type.
+* 4. Includes a comparison table if strings do not match.
 */
-function createArray(fizzValue, buzzValue, fizzText, buzzText)
+function checkPalindrome(inputString)
 {
-    let array = [];
+    // Set letters to lower case and remove special characters and spaces
+    inputString = inputString.toLowerCase();
 
-    // Loop through 100 numbers an push into array either number of FizzBuzz value
-    for (let i = 1;i <= 100;i++) {
+    let regex = /[^a-z0-9]/gi;
+    inputString = inputString.replace(regex,"");
+    
+    // Reverse string
+    let reversedString = inputString.split("").reverse().join("");
+    
+    // Create and set object properties dependent on results.
+    let palindromeResult = {};
 
-        // Add Fizz, Buzz, or Both if numbers are divisible
-        // If neither Fizz or Buzz is added set value to number of index
-        let value = ((i % fizzValue == 0 ? fizzText : "") + (i % buzzValue == 0 ? buzzText : "") || i);
-
-        array.push(value);
+    if (inputString == reversedString && inputString != ""){
+        palindromeResult.alertBox = "alert-success",
+        palindromeResult.alertHead = "Congratulations",
+        palindromeResult.alertText = `Your reversed string: "${reversedString}" is a palindrome.`
+        palindromeResult.comparison = false
+        
+    }
+    else if (inputString == "")
+    {
+        palindromeResult.alertBox = "alert-danger",
+        palindromeResult.alertHead = "Oh no, try again!",
+        palindromeResult.alertText = "Nothing was entered, please enter some text."
+        palindromeResult.comparison = false
+    }
+    else
+    {
+        palindromeResult.alertBox = "alert-danger",
+        palindromeResult.alertHead = "Oh no, try again!",
+        palindromeResult.alertText = `Your reversed string: "${reversedString}" is not a palindrome.`
+        // Create comparison table
+        palindromeResult.comparison = compareStrings(inputString, reversedString)
     }
 
-    return array;
+    palindromeResult.reversed = reversedString;
+
+    return palindromeResult;
 }
                                 </code>
                             </pre>
                         </div>
                     </div>
 
-                    <!-- Function displayTable() -->
+                    <!-- Function compareStrings() -->
                     <div class="collapsible">
                         <input class="border border-2 border-dark" type="checkbox" id="collapsible-3">
 
                         <label for="collapsible-3">
                             <span class="token keyword">function</span>
-                            <span class="token function">displayTable</span>
-                            <span class="token punctuation">(arguments) {</span>
-                            <span class="token punctuation">displays the FizzBuzz array inside a table }</span>
+                            <span class="token function">compareStrings</span>
+                            <span class="token punctuation">(args) {</span>
+                            <span class="token punctuation">compares non equal strings }</span>
                         </label>
 
                         <div class="collapsible-text">
@@ -355,81 +353,74 @@ function createArray(fizzValue, buzzValue, fizzText, buzzText)
                                 <code class="language-javascript">
 /*
 * Description
-* Displays FizzBuzz array in a table of numbers with special formatting.
-* 1. Maps an array of numbers, a string for "fizz", and a string for "buzz".
-* 2. Resets the HTML table to start with an empty string.
-* 3. Sets up variables for the start and end of each row of the table
-* 4. sets number of columns based on a slider element in the HTML.
-* 5. Determines the appropriate table row and color class based on array values.
-* 6. Appends the formatted number to the tableHTML string.
-* 7. Finally, tableHTML is used to update the table element in the HTML document.
+* Compares two input strings and generates a comparison result.
+* 1. Takes two parameters, which are the original and reversed versions of the input string.
+* 2. Loop through input strings and highlight differences with CSS class tags.
+* 3. Populate comparison array with these differences.
+* 4. Return comparison as an array of two strings with CSS class tags.
 */
-function displayTable(fizzName, buzzName)
+function compareStrings(input, reversed)
 {
-    //Reset Table
-    let tableHtml = "";
+    let comparison = ['', '']
 
-    //Set table row tags
-    let tableRowStart = "";
-    let tableRowEnd = "";
-
-    //used for table row numbers
-    let columns = getElementBy("id", "tableSlider").value;
-    let iCountNum = 1;    
-
-    //Value that will be displayed
-    let fizBuzzValue = ''
-
-    //sets colour class for table entries
-    let colorClass = "";
-
-    
-    displayArray.map((element, index) => {
-
-        //sets the table row numbers
-        if (columns == 1)
-        {
-            tableRowStart = "<tr>";
-            tableRowEnd = "</tr>";
-        }
-        else if (iCountNum == 1)
-        {
-            tableRowStart = "<tr>";
-            tableRowEnd = "";
-            iCountNum++;
-        }
-        else if (iCountNum >= columns)
-        {
-            tableRowStart = "";
-            tableRowEnd = "</tr>";
-            iCountNum = 1;
+    for (let i = 0; i < input.length; i++) {        
+        if (input[i] == reversed[i]) {
+            comparison[0] += `<span class="true">${input[i]}</span>`
+            comparison[1] += `<span class="true">${reversed[i]}</span>`
         }
         else
         {
-            tableRowStart = "";
-            tableRowEnd = "";
-            iCountNum++;
+            comparison[0] += `<span class="false">${input[i]}</span>`
+            comparison[1] += `<span class="false">${reversed[i]}</span>`
         }
+    }
 
-        //Set CSS class
-        colorClass = element;
-        
-        if (element == fizzName + buzzName) {
-            fizBuzzValue = `<span class="${element}">${element}</span>`;
-            colorClass = "";
-        } else if (element == fizzName){
-            fizBuzzValue = element;
-        } else if (element == buzzName){
-            fizBuzzValue = element;
-        } else {
-            fizBuzzValue = element;
+    return comparison
+}
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+
+                    <!-- Function displayResult() -->
+                    <div class="collapsible">
+                        <input class="border border-2 border-dark" type="checkbox" id="collapsible-3">
+
+                        <label for="collapsible-3">
+                            <span class="token keyword">function</span>
+                            <span class="token function">displayResult</span>
+                            <span class="token punctuation">(arg) {</span>
+                            <span class="token punctuation">displays the result by using an alert box with optional comparison table. }</span>
+                        </label>
+
+                        <div class="collapsible-text">
+                            <pre class="line-numbers">
+                                <code class="language-javascript">
+/*
+* Description
+* Compares two input strings and generates a comparison result.
+* 1. Takes two parameters, which are the original and reversed versions of the input string.
+* 2. Loop through input strings and highlight differences with CSS class tags.
+* 3. Populate comparison array with these differences.
+* 4. Return comparison as an array of two strings with CSS class tags.
+*/
+function compareStrings(input, reversed)
+{
+    let comparison = ['', '']
+
+    for (let i = 0; i < input.length; i++) {        
+        if (input[i] == reversed[i]) {
+            comparison[0] += `<span class="true">${input[i]}</span>`
+            comparison[1] += `<span class="true">${reversed[i]}</span>`
         }
+        else
+        {
+            comparison[0] += `<span class="false">${input[i]}</span>`
+            comparison[1] += `<span class="false">${reversed[i]}</span>`
+        }
+    }
 
-        tableHtml += `${tableRowStart}<td class="${colorClass}">${fizBuzzValue}</td>${tableRowEnd}`;
-
-    })
-    
-    getElementBy("id", "tableData").innerHTML = tableHtml;
+    return comparison
 }
                                 </code>
                             </pre>
@@ -474,7 +465,25 @@ function displayTable(fizzName, buzzName)
                             </pre>
                         </div>
                     </div>
-                </div>
+                
+                    <h5>Event Listeners</h5>
+
+                    <!-- Function addEventListener, keyup -->
+                    <div class="mt-2 mb-3">
+                        <pre class="line-numbers">
+                            <code class="language-javascript">
+// Listens for Enter button on keyboard while focused on input box.
+// Calls getString() and scrolls results into view.
+inputBox.addEventListener('keyup', (e) => {
+    if (e.key === "Enter") {
+        getString()
+        window.location.href = '#Results'
+    }
+})
+                            </code>
+                        </pre>
+                    </div>
+                    
 
             </section>
             
@@ -483,7 +492,7 @@ function displayTable(fizzName, buzzName)
                     <div class="cta-inner section-inner">
                         <div class="cta-header text-center">
                             <h2 class="section-title mt-0">Try out the other Apps</h2>
-                            <p class="section-paragraph">Don't fizz out, click below and buzz of to try out the other apps in the collection.</p>
+                            <p class="section-paragraph">Reverse on back, click below and return to try out the other apps in the collection.</p>
                             <div class="cta-cta">
                                 <a class="button button-primary rounded-1" href="/apps.html">Lets go!</a>
                             </div>

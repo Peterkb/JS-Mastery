@@ -20,7 +20,7 @@ var app = {
     wordTrek : {
         Title: 'Word Trek',
         Path: 'word-trek',
-        Description: 'Word Trek is a simple and easy-to-use app that helps you find the longest word in a given string of text.',
+        Description: 'Word Trek is a simple and easy-to-use app that helps you find the longest word in a given string of text. The longest word in English has 189,819 letters and takes 3 hours to pronounce. This is a technical term for the chemical composition of titin.',
         Button: ['Search Away!', 'Find it!']
     }
 }
