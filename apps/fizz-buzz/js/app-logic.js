@@ -1,4 +1,6 @@
 var displayArray = []
+var fizzText = "Fizz";
+var buzzText = "Buzz";
 
 //Controller function
 function getValues()
@@ -16,8 +18,9 @@ function getValues()
     buzzValue = parseInt(buzzValue);
 
     //Sets name for Fizz and Buzz that can also be used as class names for CSS styling
-    let fizzText = "Fizz";
-    let buzzText = "Buzz";
+    // Can later be used to take in user chosen names
+    fizzText = "Fizz";
+    buzzText = "Buzz";
 
     //Check whether parsed values are integers if not display alert to user
     if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue))
@@ -43,7 +46,7 @@ function getValues()
 }
 
 // Create and return an array of 100 numbers substituting values for Fizz or Buzz where appropriate
-function createArray(fizzValue, buzzValue, fizzText, buzzText)
+function createArray(fizzValue, buzzValue)
 {
     let array = [];
 
@@ -61,7 +64,7 @@ function createArray(fizzValue, buzzValue, fizzText, buzzText)
 }
 
 //Display values
-function displayTable(fizzName, buzzName)
+function displayTable()
 {
     //Reset Table
     let tableHtml = "";
@@ -79,7 +82,7 @@ function displayTable(fizzName, buzzName)
 
     //sets colour class for table entries
     let colorClass = "";
-
+    console.log(displayArray);
     
     displayArray.map((element, index) => {
 
@@ -111,12 +114,13 @@ function displayTable(fizzName, buzzName)
         //Set CSS class
         colorClass = element;
         
-        if (element == fizzName + buzzName) {
+        if (element == fizzText + buzzText) {
             fizBuzzValue = `<span class="${element}">${element}</span>`;
+            console.log(element);
             colorClass = "";
-        } else if (element == fizzName){
+        } else if (element == fizzText){
             fizBuzzValue = element;
-        } else if (element == buzzName){
+        } else if (element == buzzText){
             fizBuzzValue = element;
         } else {
             fizBuzzValue = element;

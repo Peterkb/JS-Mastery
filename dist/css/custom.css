@@ -112,15 +112,18 @@ a {
 
 /*Table Colours*/
 /* TODO fix specificity */
-td.Fizz{
+td.Fizz,
+.Fizz {
     color: var(--color-lightBlue) !important;
 }
 
-td.Buzz{
+td.Buzz,
+.Buzz {
     color: var(--color-orange) !important;
 }
 
-td > span.FizzBuzz{
+td > span.FizzBuzz,
+.FizzBuzz {
     font-weight: bold;
     background: -webkit-linear-gradient(0deg,var(--color-lightBlue), var(--color-orange));
     background-clip: text;
@@ -227,7 +230,7 @@ td > span.FizzBuzz{
     z-index: 99;
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 2vw;
 }
 
 .app-grid>ul>li>a:hover {
