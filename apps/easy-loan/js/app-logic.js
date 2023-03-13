@@ -184,3 +184,9 @@ getElementBy("id", "inputRate").addEventListener('keyup', (e) => {
         window.location.href = '#Results'
     }
 })
+
+/**
+ * TODO
+ * Save loans to local storage for recollection
+ * Make printable version of table
+ */
