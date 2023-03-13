@@ -92,7 +92,7 @@ button.btn {
 }
 
 button.btn:hover {
-    background-color: var(--color-orange);
+    /* background-color: var(--color-orange); */
 }
 
 button>a.link {
@@ -234,9 +234,7 @@ td > span.FizzBuzz,
 }
 
 .app-grid>ul>li>a:hover {
-    color: var(--color-orange);
-
-    
+    /* color: var(--color-orange); */
     scale: 1.1;
 }
 
@@ -260,4 +258,37 @@ p>span.true {
 
 p>span.false {
     color: var(--color-orange) !important;
+}
+
+/* Input Error */
+.shake {
+    animation: shake 300ms;
+}
+
+@keyframes shake {
+    25% { translate: 4px 0; }
+    50% { translate: -4px 0; }
+    75% { translate: 4px 0; }
+}
+
+.input-box {
+    background-color: var(--color-darkblue);
+    border-radius: 2px;
+    color: white;
+}
+
+/* Forms */
+
+.form-select {
+    /* padding: 3px !important; */
+}
+
+/* Tables */
+body.lights-off td {
+    color: #8595AE !important;
+}
+
+.table.sticky th {
+    position: sticky;
+    top: 0;
 }

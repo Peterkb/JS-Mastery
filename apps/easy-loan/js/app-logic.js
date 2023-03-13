@@ -1,60 +1,66 @@
 // Global variables
+var formatNum = new Intl.NumberFormat(undefined, {
+    currency: getElementBy("id", "currency").value,
+    style: "currency"
+})
+
+const defaultFormat = new Intl.NumberFormat(undefined, {
+    
+})
+getElementBy("id", "inputAmount").value = defaultFormat.format(15000)
 
 //Logic Functions
 
-//Display Functions
-
-//Shorten Code
-function getElementBy(type, value)
-{
-    if(type === "id" || type === "id")
-        return document.getElementById(value);
-    
-    if(type === 'class' || type === 'Class' || type === 'ClassName' || type === 'className')
-        return document.getElementsByClassName(value);
-    
-    if(type === 'tag' || type === 'Tag' || type === 'TagName' || type === 'tagName')
-        return document.getElementsByTagName(value);
-}
-
-// Event Listeners
-// inputBox.addEventListener('keyup', (e) => {
-//     if (e.key === "Enter") {
-//         getString()
-//         window.location.href = '#Results'
-//     }
-// })
-
 //get values
-function getValues(){
+function getValues(){    
     //clear table
-    clearTable("tableBody");
+    clearTable("id", "tableBody");
 
-    let currency = "$";
+    // Get Input
+    let loanInput = getElementBy("id", "inputAmount");
+    let loanValue = parseIfANumber(loanInput);
 
-    let loanVal = gE("inputLoan").value;
-    loanVal = parseFloat(loanVal);
+    let monthInput = getElementBy("id", "inputPayments");
+    let monthValue = parseIfANumber(monthInput);
 
-    let monthVal = gE("inputPayNum").value;
-    monthVal = parseFloat(monthVal);
-
-    let intrestVal = gE("inputRate").value;
-    intrestVal =  parseFloat(intrestVal);
+    let interestInput = getElementBy("id", "inputRate");
+    let interestValue =  parseIfANumber(interestInput);
 
     //logic function
-    let loanObj = calculateLoanpmt(loanVal, monthVal, intrestVal);
+    let loanObject = calculateLoanpayment(loanValue, monthValue, interestValue);
 
     //display function
-    displayLoan(loanObj, currency);
+    displayLoan(loanObject);
 }
 
-//Shorthand
-function gE(id){
-    return document.getElementById(id);
+function parseIfANumber(userInput) {
+    // let regex = /[^a-z0-9]/gi;
+    // inputString = inputString.replace(regex,"");
+    let input = userInput
+    let inputValue = input.value.trim();
+    let isNumber = !isNaN(inputValue) && inputValue !== '';
+
+    if (!isNumber) {
+        // Add shake class to input
+        input.classList.add('shake', 'is-invalid');
+    
+        // Display message
+        const errorMessage = document.createElement('div');
+        errorMessage.className = 'text-warning';
+        errorMessage.innerText = 'Please enter a valid number';
+        input.parentNode.appendChild(errorMessage);
+    
+        // Remove shake class and message after 1 second
+        setTimeout(() => {
+          input.classList.remove('shake', 'is-invalid');
+          errorMessage.remove();
+        }, 1000);
+    }
+    
+    return parseFloat(input.value);
 }
 
-//Logic Function
-function calculateLoanpmt(loanVal, months, rate){
+function calculateLoanpayment(loanVal, months, rate){
 
     let loanObject = {};
     //loanVal = parseFloat(loanVal);
@@ -92,10 +98,11 @@ function calculateLoanpmt(loanVal, months, rate){
 }
 
 //Display function
-function displayLoan(loanObj, currency){
-    
-    let tableBody = gE("tableBody");
-    let templateRow =  gE("tableTemplate");
+function displayLoan(loanObj){
+    changeCurrency()
+
+    let tableBody = getElementBy("id", "tableBody");
+    let templateRow =  getElementBy("id", "tableTemplate");
     
     for (let i = 1; i <= loanObj.months; i++) {
 
@@ -104,27 +111,30 @@ function displayLoan(loanObj, currency){
 
         //months (same as i)
         RowCols[0].textContent = i;
-        //pmt
-        RowCols[1].textContent = `${currency}${loanObj.pmtMonthly.toFixed(2)}`;
+        //paymentmt
+        RowCols[1].textContent = `${formatNum.format(loanObj.pmtMonthly)}`;
         //principal
-        RowCols[2].textContent = loanObj.pmtPrin[i].toFixed(2);
+        RowCols[2].textContent = formatNum.format(loanObj.pmtPrin[i]);
         //intrest
-        RowCols[3].textContent = loanObj.pmtIntrest[i].toFixed(2);
+        RowCols[3].textContent = formatNum.format(loanObj.pmtIntrest[i]);
         //total intrest
-        RowCols[4].textContent = loanObj.intrestTot[i].toFixed(2);
+        RowCols[4].textContent = formatNum.format(loanObj.intrestTot[i]);
         //balance
-        RowCols[5].textContent = loanObj.balance[i].toFixed(2);
+        RowCols[5].textContent = formatNum.format(loanObj.balance[i]);
 
         tableBody.appendChild(tableRow);
     }
     //monthly
-    gE("outPmt").innerHTML = loanObj.pmtMonthly.toFixed(2);
+    getElementBy("id", "displayPayment").innerHTML = formatNum.format(loanObj.pmtMonthly);
+
     //principal
-    gE("outLoan").innerHTML = loanObj.principal.toFixed(2);
+    getElementBy("id", "displayLoan").innerHTML = formatNum.format(loanObj.principal);
+
     //total intrest
-    gE("outIntrest").innerHTML = (loanObj.intrestTot[loanObj.months].toFixed(2));
+    getElementBy("id", "displayIntrest").innerHTML = formatNum.format(loanObj.intrestTot[loanObj.months]);
+
     //Total Principal + Intrest
-    gE("outTotal").innerHTML = loanObj.total.toFixed(2);
+    getElementBy("id", "displayTotal").innerHTML = formatNum.format(loanObj.total);
 }
 
 function rounding(x){
@@ -132,9 +142,37 @@ function rounding(x){
     //return Math.round(x * 100) / 100;
 }
 
-function clearTable(x){
-    gE(x).innerHTML = "";
+function clearTable(type, value){
+    getElementBy(type, value).innerHTML = "";
 }
+
+//Shorten Code
+function getElementBy(type, value)
+{
+    if(type === "id" || type === "Id")
+        return document.getElementById(value);
+    
+    if(type === 'class' || type === 'Class' || type === 'ClassName' || type === 'className')
+        return document.getElementsByClassName(value);
+    
+    if(type === 'tag' || type === 'Tag' || type === 'TagName' || type === 'tagName')
+        return document.getElementsByTagName(value);
+}
+
+function changeCurrency() {
+    formatNum = new Intl.NumberFormat(undefined, {
+        currency: getElementBy("id", "currency").value,
+        style: "currency"
+    })
+}
+
+// Event Listeners
+// inputBox.addEventListener('keyup', (e) => {
+//     if (e.key === "Enter") {
+//         getString()
+//         window.location.href = '#Results'
+//     }
+// })
 
 
 

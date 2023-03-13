@@ -1,7 +1,6 @@
 function setLinks() {
     // Set Portfolio Link
     let links = getBy("class", "porfolioLink")
-    console.log(links);
 
     for (const link of links) {
         link.href="https://portfolio-23-2.vercel.app/"

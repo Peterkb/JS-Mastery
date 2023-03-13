@@ -118,7 +118,7 @@
                                     </div>
 									<div class="feature-content">
                                     	<h3 class="feature-title mt-0">Features</h3>
-                                    	<p class="text-sm mb-0">User Input, Persistant theme toggle using local storage.</p>
+                                    	<p class="text-sm mb-0">Easy-to-use interface, Dynamic calculations, Customizable payment frequency, Printable payment schedule, Mobile-friendly, Persistent theme toggle using local storage.</p>
 									</div>
 								</div>
                             </div>
@@ -134,57 +134,82 @@
                     <div class="row gx-4">
                         <div class="col">
                             <h1>Easy Loan: Amortization calculator</h1>
-                            <p class="border-bottom border-1 border-info pb-3">Easy Loan Description.</p>
+                            <p class="border-bottom border-1 border-info pb-3">Whether you're a borrower looking to understand your loan payments or a financial professional looking for a tool to help your clients, the Amortization Calculator is a useful and easy-to-use tool that can help you make informed loan decisions.</p>
         
-                            <h2>Instructions:</h2>
-                            <p class="border-bottom border-1 border-info pb-3">Easy Loan Instructions.</p>
+                            <h2>Instructions:</h2>                            
+                            <ol>
+                                <li>Enter Loan Amount.</li>
+                                <li>Enter the number of payments.</li>
+                                <li>Enter the interest rate.</li>
+                                <li>Click the button to calculate the amortization schedule.</li>
+                            </ol>
+                            <p class="border-bottom border-1 border-info pb-3">
+                            </p>
                         </div>
                     </div>
 
                     <div class="row row-cols-1 row-cols-lg-2 mb-3">
 
                         <!-- Loan Input -->
-                        <div class="col bg-dark-subtle p-2">
+                        <div class="col input-box py-2 px-3 ">
 
                             <!-- Amount -->
                             <div class="mb-3">
-                                <label for="Input1">Loan Amount</label>
-                                <input type="number" class="form-control" id="inputAmount" placeholder="amount" value="15000">
+                                <label>Loan Amount</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <select class="form-select" id="currency">
+                                            <option value="EUR">€</option>
+                                            <option value="USD">$</option>
+                                            <option value="JPY">¥</option>
+                                            <option value="ZAR">R</option>
+                                        </select>
+                                    </span>
+                                    <input type="text" class="form-control" id="inputAmount" placeholder="amount" inputmode="numeric" aria-label="Currency amount (with dot and two decimal places)">
+                                </div>
                             </div>
+                              
 
                             <!-- Payments -->
                             <div class="mb-3">
-                                <label for="Input2">Payments</label>
-                                <input type="number" class="form-control" id="inputPayments" placeholder="months" value="60">
+                                <label>Payments</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">#</span>
+                                    <input type="text" class="form-control" id="inputPayments" placeholder="months" pattern="[0-9]*" inputmode="numeric">
+                                </div>
                             </div>
 
                             <!-- Intrest Rate -->
                             <div class="mb-3">
-                                <label for="Input3">Intrest Rate</label>
-                                <input type="number" class="form-control" id="inputRate" placeholder="%" value="3">
+                                <label>Intrest Rate</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">%</span>
+                                    <input type="text" class="form-control" id="inputRate" placeholder="rate" inputmode="numeric">
+                                </div>
+                                <!-- <div class="text-warning ps-2" id="errorRate">Please enter a valid number</div> -->
                             </div>
 
                             <!-- Submit -->
                             <div class="mb-3 d-flex justify-content-end">
-                                <button type="button" class="btn btn-outline-info" id="btnCalc">Calculate</button>
+                                <button onclick="getValues()" type="button" class="btn btn-outline-light" id="btnCalc">Calculate</button>
                             </div>
                         </div>
 
                         <!-- Loan Information -->
                         <div class="col p-2 d-flex flex-column align-self-center">
                             <h5 class="text-center">Your Monthly Payments</h5>
-                            <h1 class="text-center" id="outPmt">$0.00</h1>
+                            <h1 class="text-center" id="displayPayment">0.00</h1>
                             
                             <p class="text-center">
-                                Total Principal: <span id="outLoan">$0.00</span>
+                                Total Principal: <span id="displayLoan">0.00</span>
                             </p>
                             
                             <p class="text-center">
-                                Total Intrest: <span id="outIntrest">$0.00</span>
+                                Total Intrest: <span id="displayIntrest">0.00</span>
                             </p>
                             
                             <p class="text-center">
-                                Total Cost: <span id="outTotal">$0.00</span>
+                                Total Cost: <span id="displayTotal">0.00</span>
                             </p>
                             
                         </div>
@@ -192,7 +217,7 @@
 
                     <!-- RESULTS -->
                     <div class="row table-responsive">
-                        <table class="table table-striped table-hover">
+                        <table class="table table-striped table-hover sticky">
                             <thead class="table-dark">
                                 <th>Month</th>
                                 <th>Payment</th>
