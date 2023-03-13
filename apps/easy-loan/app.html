@@ -159,13 +159,16 @@
                                 <div class="input-group">
                                     <span class="input-group-text">
                                         <select class="form-select" id="currency">
-                                            <option value="EUR">€</option>
-                                            <option value="USD">$</option>
-                                            <option value="JPY">¥</option>
-                                            <option value="ZAR">R</option>
+                                            <option value="EUR">€ - Euro</option>
+                                            <option value="USD">$ - Dollar</option>
+                                            <option value="JPY">¥ - Yen</option>
+                                            <option value="ZAR">R - Rand</option>
+                                            <option value="INR">₹ - Rupee</option>
+                                            <option value="BRL">R - Real</option>
+                                            <option value="BRL">¥ - Yuan</option>
                                         </select>
                                     </span>
-                                    <input type="text" class="form-control" id="inputAmount" placeholder="amount" inputmode="numeric" aria-label="Currency amount (with dot and two decimal places)">
+                                    <input type="text" class="form-control" id="inputAmount" placeholder="amount" inputmode="numeric" aria-label="Currency amount (with dot and two decimal places)" value="15000">
                                 </div>
                             </div>
                               
@@ -175,7 +178,7 @@
                                 <label>Payments</label>
                                 <div class="input-group">
                                     <span class="input-group-text">#</span>
-                                    <input type="text" class="form-control" id="inputPayments" placeholder="months" pattern="[0-9]*" inputmode="numeric">
+                                    <input type="text" class="form-control" id="inputPayments" placeholder="months" pattern="[0-9]*" inputmode="numeric" value="60">
                                 </div>
                             </div>
 
@@ -184,9 +187,8 @@
                                 <label>Intrest Rate</label>
                                 <div class="input-group">
                                     <span class="input-group-text">%</span>
-                                    <input type="text" class="form-control" id="inputRate" placeholder="rate" inputmode="numeric">
+                                    <input type="text" class="form-control" id="inputRate" placeholder="rate" inputmode="numeric" value="3.5">
                                 </div>
-                                <!-- <div class="text-warning ps-2" id="errorRate">Please enter a valid number</div> -->
                             </div>
 
                             <!-- Submit -->
@@ -196,7 +198,7 @@
                         </div>
 
                         <!-- Loan Information -->
-                        <div class="col p-2 d-flex flex-column align-self-center">
+                        <div class="col p-2 d-flex flex-column align-self-center" id="Results">
                             <h5 class="text-center">Your Monthly Payments</h5>
                             <h1 class="text-center" id="displayPayment">0.00</h1>
                             
@@ -216,14 +218,14 @@
                     </div>
 
                     <!-- RESULTS -->
-                    <div class="row table-responsive">
-                        <table class="table table-striped table-hover sticky">
+                    <div class="row table-responsive" id="tableResults">
+                        <table class="table table-striped table-hover">
                             <thead class="table-dark">
                                 <th>Month</th>
                                 <th>Payment</th>
                                 <th>Principal</th>
                                 <th>Intrest</th>
-                                <th>Total Intrest</th>
+                                <th>Total Interest</th>
                                 <th>Balance</th>
                             </thead>
                             <tbody id="tableBody">
@@ -255,7 +257,11 @@
                 <div class="mt-2 mb-3">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-// Global variables.
+// Global variables
+var formatNum = new Intl.NumberFormat(undefined, {
+    currency: getElementBy("id", "currency").value,
+    style: "currency"
+});
                         </code>
                     </pre>
                 </div>
@@ -264,19 +270,18 @@
                 
                 <div class="row">
                     
-                    <!-- Function getString() -->
+                    <!-- Function getValues() -->
                     <div class="collapsible">
                         <input class="border border-1 border-info" type="checkbox" id="collapsible-1">
 
-                        <!-- Function getValues -->
                         <label for="collapsible-1">
                             <span class="token keyword">function</span>
-                            <span class="token function">getString</span>
+                            <span class="token function">getValues</span>
                             <span class="token punctuation">() {</span>
-                            <span class="token function">takes</span>
+                            <span class="token function">gets</span>
                             <span class="token punctuation">user input,</span>
-                            <span class="token function">checks</span>
-                            <span class="token punctuation">for Palindrome and </span>
+                            <span class="token function">calculates</span>
+                            <span class="token punctuation">loan and </span>
                             <span class="token function">displays</span>
                             <span class="token punctuation"> result }</span>
                         </label>
@@ -287,21 +292,53 @@
 /*
 * Description
 */
+function getValues(){    
+    //clear table
+    getElementBy("id", "tableBody").innerHTML = "";
+
+    let numberTest = { value: true };
+
+    // Get Inputs
+    let loanInput = getElementBy("id", "inputAmount");
+    let loanValue = parseIfANumber(loanInput, numberTest);
+
+    let monthInput = getElementBy("id", "inputPayments");
+    let monthValue = parseIfANumber(monthInput, numberTest);
+
+    let interestInput = getElementBy("id", "inputRate");
+    let interestValue =  parseIfANumber(interestInput, numberTest);
+
+    if (!numberTest.value) {
+        //Reset monthly information
+        getElementBy("id", "displayPayment").innerHTML = "0.00";
+        getElementBy("id", "displayLoan").innerHTML = "0.00";
+        getElementBy("id", "displayIntrest").innerHTML = "0.00";
+        getElementBy("id", "displayTotal").innerHTML = "0.00";
+    }
+    else
+    {
+        //logic function
+        let loanObject = calculateLoanpayment(loanValue, monthValue, interestValue);
+
+        //display function
+        displayLoan(loanObject);
+    }
+}
                                 </code>
                             </pre>
                         </div>
                     </div>
 
-                    <!-- Function checkPalindrome() -->
+                    <!-- Function parseIfANumber() -->
                     <div class="collapsible">
                         <input class="border border-2 border-dark" type="checkbox" id="collapsible-2">
 
                         <label for="collapsible-2">
                             <span class="token keyword">function</span>
-                            <span class="token function">checkPalindrome</span>
-                            <span class="token punctuation">(arg) {</span>
-                            <span class="token keyword">removes</span>
-                            <span class="token punctuation">specials characters, reverses it and verifies if it's equal to the original</span>
+                            <span class="token function">parseIfANumber</span>
+                            <span class="token punctuation">(args) {</span>
+                            <span class="token function">parse</span>
+                            <span class="token punctuation">input if is number</span>
                             <span class="token punctuation">}</span>
                         </label>
 
@@ -311,20 +348,44 @@
 /*
 * Description
 */
+function parseIfANumber(userInput, numberTest) {
+    
+    let input = userInput
+    let inputValue = input.value.trim();
+    let isNumber = !isNaN(inputValue) && inputValue !== '';
+
+    if (!isNumber) {
+        // Add shake class to input
+        input.classList.add('is-invalid');
+        input.parentNode.classList.add('shake');
+    
+        // Remove shake class and message after 1 second
+        setTimeout(() => {
+            input.classList.remove('is-invalid');
+            input.parentNode.classList.remove('shake');
+        }, 1000);
+
+        // Set test pass if value is a number
+        numberTest.value = false;
+    }
+    
+    return parseFloat(input.value);
+}
                                 </code>
                             </pre>
                         </div>
                     </div>
 
-                    <!-- Function compareStrings() -->
+                    <!-- Function calculateLoanpayment() -->
                     <div class="collapsible">
                         <input class="border border-2 border-dark" type="checkbox" id="collapsible-3">
 
                         <label for="collapsible-3">
                             <span class="token keyword">function</span>
-                            <span class="token function">compareStrings</span>
+                            <span class="token function">calculateLoanpayment</span>
                             <span class="token punctuation">(args) {</span>
-                            <span class="token punctuation">compares non equal strings }</span>
+                            <span class="token function">calculates</span>
+                            <span class="token punctuation">loan repayments using user inputs }</span>
                         </label>
 
                         <div class="collapsible-text">
@@ -333,20 +394,58 @@
 /*
 * Description
 */
+function calculateLoanpayment(loanVal, months, rate){
+
+    let loanObject = {};
+    //loanVal = parseFloat(loanVal);
+
+    loanObject.months = months;
+    loanObject.rate = parseFloat(rate);
+    loanObject.principal = parseFloat(loanVal);
+
+    loanObject.pmtIntrest = [0];
+    loanObject.pmtPrin = [0];
+    loanObject.pmtPrinTot = [0];
+    loanObject.intrestTot = [0];
+    loanObject.balance = [parseFloat(loanVal)];
+
+    //Total Monthly pmt = (amount loaned) * (rate/1200) / (1 – (1 + rate/1200)to pow(-Number of Months))
+    loanObject.pmtMonthly =  parseFloat((loanVal * (rate/1200)) /
+    (1-(1+(rate/1200))**(-Math.abs(months))));
+
+    for (i = 1; i <= months;i++){
+        //Intrest : Previous Remaining Balance * rate/1200
+        loanObject.pmtIntrest.push(parseFloat(loanObject.balance[i-1] * (rate/1200)));
+        //Total Monthly pmt - Interest pmt (Principal pmt)
+        loanObject.pmtPrin.push(parseFloat(loanObject.pmtMonthly - loanObject.pmtIntrest[i]));
+        //principal total
+        loanObject.pmtPrinTot.push(parseFloat(loanObject.pmtPrinTot[i-1]+loanObject.pmtPrin[i]))
+        //Intrest total
+        loanObject.intrestTot.push(parseFloat(loanObject.intrestTot[i-1] + loanObject.pmtIntrest[i]));
+        //remaining balance
+        loanObject.balance.push(Math.abs(parseFloat(loanObject.balance[i-1]-loanObject.pmtPrin[i])));
+    }
+
+    loanObject.total = parseFloat(loanObject.intrestTot[months] + loanObject.principal);
+
+    return loanObject;
+}
                                 </code>
                             </pre>
                         </div>
                     </div>
 
-                    <!-- Function displayResult() -->
+                    <h5>Display Functions</h5>
+
+                    <!-- Function displayLoan() -->
                     <div class="collapsible">
                         <input class="border border-2 border-dark" type="checkbox" id="collapsible-3">
 
                         <label for="collapsible-3">
                             <span class="token keyword">function</span>
-                            <span class="token function">displayResult</span>
+                            <span class="token function">displayLoan</span>
                             <span class="token punctuation">(arg) {</span>
-                            <span class="token punctuation">displays the result by using an alert box with optional comparison table. }</span>
+                            <span class="token punctuation">displays loan object inside a table. }</span>
                         </label>
 
                         <div class="collapsible-text">
@@ -355,12 +454,83 @@
 /*
 * Description
 */
+function displayLoan(loanObj){
+    changeCurrency()
+
+    let tableBody = getElementBy("id", "tableBody");
+    let templateRow =  getElementBy("id", "tableTemplate");
+    
+    for (let i = 1; i <= loanObj.months; i++) {
+
+        let tableRow =  document.importNode(templateRow.content, true);
+        let RowCols = tableRow.querySelectorAll("td");
+
+        //months (same as i)
+        RowCols[0].textContent = i;
+        //paymentmt
+        RowCols[1].textContent = `${formatNum.format(loanObj.pmtMonthly)}`;
+        //principal
+        RowCols[2].textContent = formatNum.format(loanObj.pmtPrin[i]);
+        //interest
+        RowCols[3].textContent = formatNum.format(loanObj.pmtIntrest[i]);
+        //total intrest
+        RowCols[4].textContent = formatNum.format(loanObj.intrestTot[i]);
+        //balance
+        RowCols[5].textContent = formatNum.format(loanObj.balance[i]);
+
+        tableBody.appendChild(tableRow);
+    }
+    //monthly
+    getElementBy("id", "displayPayment").innerHTML = formatNum.format(loanObj.pmtMonthly);
+
+    //principal
+    getElementBy("id", "displayLoan").innerHTML = formatNum.format(loanObj.principal);
+
+    //total intrest
+    getElementBy("id", "displayIntrest").innerHTML = formatNum.format(loanObj.intrestTot[loanObj.months]);
+
+    //Total Principal + Intrest
+    getElementBy("id", "displayTotal").innerHTML = formatNum.format(loanObj.total);
+
+    window.location.href = "#tableResults"
+}
                                 </code>
                             </pre>
                         </div>
                     </div>
                 
-                    <h5>Helper Functions</h5>
+                    <h5>Extra Functions</h5>
+
+                    <!-- Function changeCurrency -->
+                    <div class="collapsible">
+                        <input class="border border-2 border-dark" type="checkbox" id="collapsible-4">
+
+                        <label for="collapsible-4">
+                            <span class="token keyword">function</span>
+                            <span class="token function">changeCurrency</span>
+                            <span class="token punctuation">() {</span>
+                            <span class="token keyword">change</span>
+                            <span class="token punctuation">formatNum global variable }</span>
+                        </label>
+
+                        <div class="collapsible-text">
+                            <pre class="line-numbers">
+                                <code class="language-javascript">
+/*
+* Description
+* Changes global currency formatNum variable using currency select list.
+* Used to set currency formatting.
+*/
+function changeCurrency() {
+    formatNum = new Intl.NumberFormat(undefined, {
+        currency: getElementBy("id", "currency").value,
+        style: "currency"
+    })
+}
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
 
                     <!-- Function getElementBy -->
                     <div class="collapsible">
@@ -406,6 +576,13 @@ function getElementBy(type, value)
                         <pre class="line-numbers">
                             <code class="language-javascript">
 // Event Listener
+// Run getString() when inputs are focused on Enter keypress.
+getElementBy(type, value).addEventListener('keyup', (e) => {
+    if (e.key === "Enter") {
+        getString()
+        window.location.href = '#Results'
+    }
+})
                             </code>
                         </pre>
                     </div>

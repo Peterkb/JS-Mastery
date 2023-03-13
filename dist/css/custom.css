@@ -287,8 +287,3 @@ p>span.false {
 body.lights-off td {
     color: #8595AE !important;
 }
-
-.table.sticky th {
-    position: sticky;
-    top: 0;
-}

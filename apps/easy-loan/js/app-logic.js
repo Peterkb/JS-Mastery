@@ -4,57 +4,61 @@ var formatNum = new Intl.NumberFormat(undefined, {
     style: "currency"
 })
 
-const defaultFormat = new Intl.NumberFormat(undefined, {
-    
-})
-getElementBy("id", "inputAmount").value = defaultFormat.format(15000)
-
 //Logic Functions
 
 //get values
 function getValues(){    
     //clear table
-    clearTable("id", "tableBody");
+    getElementBy("id", "tableBody").innerHTML = "";
 
-    // Get Input
+    let numberTest = { value: true };
+
+    // Get Inputs
     let loanInput = getElementBy("id", "inputAmount");
-    let loanValue = parseIfANumber(loanInput);
+    let loanValue = parseIfANumber(loanInput, numberTest);
 
     let monthInput = getElementBy("id", "inputPayments");
-    let monthValue = parseIfANumber(monthInput);
+    let monthValue = parseIfANumber(monthInput, numberTest);
 
     let interestInput = getElementBy("id", "inputRate");
-    let interestValue =  parseIfANumber(interestInput);
+    let interestValue =  parseIfANumber(interestInput, numberTest);
 
-    //logic function
-    let loanObject = calculateLoanpayment(loanValue, monthValue, interestValue);
+    if (!numberTest.value) {
+        //Reset monthly information
+        getElementBy("id", "displayPayment").innerHTML = "0.00";
+        getElementBy("id", "displayLoan").innerHTML = "0.00";
+        getElementBy("id", "displayIntrest").innerHTML = "0.00";
+        getElementBy("id", "displayTotal").innerHTML = "0.00";
+    }
+    else
+    {
+        //logic function
+        let loanObject = calculateLoanpayment(loanValue, monthValue, interestValue);
 
-    //display function
-    displayLoan(loanObject);
+        //display function
+        displayLoan(loanObject);
+    }
 }
 
-function parseIfANumber(userInput) {
-    // let regex = /[^a-z0-9]/gi;
-    // inputString = inputString.replace(regex,"");
+function parseIfANumber(userInput, numberTest) {
+
     let input = userInput
     let inputValue = input.value.trim();
     let isNumber = !isNaN(inputValue) && inputValue !== '';
 
     if (!isNumber) {
         // Add shake class to input
-        input.classList.add('shake', 'is-invalid');
-    
-        // Display message
-        const errorMessage = document.createElement('div');
-        errorMessage.className = 'text-warning';
-        errorMessage.innerText = 'Please enter a valid number';
-        input.parentNode.appendChild(errorMessage);
+        input.classList.add('is-invalid');
+        input.parentNode.classList.add('shake');
     
         // Remove shake class and message after 1 second
         setTimeout(() => {
-          input.classList.remove('shake', 'is-invalid');
-          errorMessage.remove();
+            input.classList.remove('is-invalid');
+            input.parentNode.classList.remove('shake');
         }, 1000);
+
+        // Set test pass if value is a number
+        numberTest.value = false;
     }
     
     return parseFloat(input.value);
@@ -76,8 +80,8 @@ function calculateLoanpayment(loanVal, months, rate){
     loanObject.balance = [parseFloat(loanVal)];
 
     //Total Monthly pmt = (amount loaned) * (rate/1200) / (1 – (1 + rate/1200)to pow(-Number of Months))
-    loanObject.pmtMonthly =  parseFloat(rounding((loanVal * (rate/1200)) /
-    (1-(1+(rate/1200))**(-Math.abs(months)))));
+    loanObject.pmtMonthly =  parseFloat((loanVal * (rate/1200)) /
+    (1-(1+(rate/1200))**(-Math.abs(months))));
 
     for (i = 1; i <= months;i++){
         //Intrest : Previous Remaining Balance * rate/1200
@@ -115,7 +119,7 @@ function displayLoan(loanObj){
         RowCols[1].textContent = `${formatNum.format(loanObj.pmtMonthly)}`;
         //principal
         RowCols[2].textContent = formatNum.format(loanObj.pmtPrin[i]);
-        //intrest
+        //interest
         RowCols[3].textContent = formatNum.format(loanObj.pmtIntrest[i]);
         //total intrest
         RowCols[4].textContent = formatNum.format(loanObj.intrestTot[i]);
@@ -135,15 +139,8 @@ function displayLoan(loanObj){
 
     //Total Principal + Intrest
     getElementBy("id", "displayTotal").innerHTML = formatNum.format(loanObj.total);
-}
 
-function rounding(x){
-    return x
-    //return Math.round(x * 100) / 100;
-}
-
-function clearTable(type, value){
-    getElementBy(type, value).innerHTML = "";
+    window.location.href = "#Results"
 }
 
 //Shorten Code
@@ -166,26 +163,24 @@ function changeCurrency() {
     })
 }
 
-// Event Listeners
-// inputBox.addEventListener('keyup', (e) => {
-//     if (e.key === "Enter") {
-//         getString()
-//         window.location.href = '#Results'
-//     }
-// })
+//Event Listeners
+getElementBy("id", "inputAmount").addEventListener('keyup', (e) => {
+    if (e.key === "Enter") {
+        getValues()
+        window.location.href = '#Results'
+    }
+})
 
+getElementBy("id", "inputPayments").addEventListener('keyup', (e) => {
+    if (e.key === "Enter") {
+        getValues()
+        window.location.href = '#Results'
+    }
+})
 
-
-
-/* --IDS--
-inputLoan   -   loan ammount
-inputPayNum -   number of pmts
-inputRate   -   Intrest rate
-btnCalc     -   start counting
-outLoan     -   Total Principal ammount
-outPmt      -   Monthly pmts
-outIntrest  -   Total intrest paid
-outTotal    -   output total ammount payable
-tableTemplate   -   Target table tempalte
-tableBody   -   output tabledata
-*/
+getElementBy("id", "inputRate").addEventListener('keyup', (e) => {
+    if (e.key === "Enter") {
+        getValues()
+        window.location.href = '#Results'
+    }
+})
