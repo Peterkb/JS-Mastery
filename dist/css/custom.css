@@ -112,17 +112,17 @@ a {
 
 /*Table Colours*/
 /* TODO fix specificity */
-td.Fizz,
+body.lights-off td.Fizz,
 .Fizz {
     color: var(--color-lightBlue) !important;
 }
 
-td.Buzz,
+body.lights-off td.Buzz,
 .Buzz {
     color: var(--color-orange) !important;
 }
 
-td > span.FizzBuzz,
+body.lights-off td > span.FizzBuzz,
 .FizzBuzz {
     font-weight: bold;
     background: -webkit-linear-gradient(0deg,var(--color-lightBlue), var(--color-orange));
