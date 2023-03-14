@@ -91,10 +91,6 @@ button.btn {
     background-color: var(--color-blue);    
 }
 
-button.btn:hover {
-    /* background-color: var(--color-orange); */
-}
-
 button>a.link {
     color: #202d3f;
     text-decoration: none;
